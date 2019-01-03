@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="ian688t6&#39;s Blog">
 <meta property="og:description" content="工程目录结构 下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改； 1$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md  config.mk openwrt环境变量配置；  config-mt7620">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-03T05:41:06.608Z">
+<meta property="og:updated_time" content="2019-01-03T08:07:11.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openwrt 创建本地工程">
 <meta name="twitter:description" content="工程目录结构 下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改； 1$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md  config.mk openwrt环境变量配置；  config-mt7620">
@@ -338,11 +338,16 @@
 </li>
 <li><p>config.mk openwrt环境变量配置；</p>
 </li>
-<li>config-mt7620a openwrt 的配置；</li>
-<li>dl 预先下载的开源包，openwrt编译耗时很长，在编译的同时也会根据依赖关系在编译过程中下载开源软件，所以预先下载需要的依赖包；</li>
-<li>Makefile 工程的第一层makefile, 功能是backport openwrt的源码；</li>
-<li>openwrt-patch 本地对openwrt官方代码的修改或添加patch;</li>
-<li>openwrt-src.tar.gz openwrt的官方代码；</li>
+<li><p>config-mt7620a openwrt 的配置；</p>
+</li>
+<li><p>dl 预先下载的开源包，openwrt编译耗时很长，在编译的同时也会根据依赖关系在编译过程中下载开源软件，所以预先下载需要的依赖包；</p>
+</li>
+<li><p>Makefile 工程的第一层makefile, 功能是backport openwrt的源码；</p>
+</li>
+<li><p>openwrt-patch 本地对openwrt官方代码的修改或添加patch;</p>
+</li>
+<li><p>openwrt-src.tar.gz openwrt的官方代码；</p>
+</li>
 </ul>
 <hr>
 <h4 id="工程的Makefile模板"><a href="#工程的Makefile模板" class="headerlink" title="工程的Makefile模板"></a>工程的Makefile模板</h4><ul>
