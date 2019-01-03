@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="ian688t6&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="简要说明 Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20   主要参考 参考Quectel官方文档，《Quectel_UC20_Embedded_Linux_USB_Driver_User_Guide_V1.0.pdf》，《Quectel_WCDMA&amp;amp;LTE_Linux_USB_Driver_User_Guide_V1.7.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Openwrt移植EC20 4G模块">
+<meta property="og:url" content="http://yoursite.com/2019/01/03/Openwrt-port-4G-driver/index.html">
 <meta property="og:site_name" content="ian688t6&#39;s Blog">
+<meta property="og:description" content="简要说明 Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20   主要参考 参考Quectel官方文档，《Quectel_UC20_Embedded_Linux_USB_Driver_User_Guide_V1.0.pdf》，《Quectel_WCDMA&amp;amp;LTE_Linux_USB_Driver_User_Guide_V1.7.">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-03T06:28:12.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ian688t6&#39;s Blog">
+<meta name="twitter:title" content="Openwrt移植EC20 4G模块">
+<meta name="twitter:description" content="简要说明 Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20   主要参考 参考Quectel官方文档，《Quectel_UC20_Embedded_Linux_USB_Driver_User_Guide_V1.0.pdf》，《Quectel_WCDMA&amp;amp;LTE_Linux_USB_Driver_User_Guide_V1.7.">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/03/Openwrt-port-4G-driver/">
 
 
 
 
 
-  <title>ian688t6's Blog</title>
+  <title>Openwrt移植EC20 4G模块 | ian688t6's Blog</title>
   
 
 
@@ -140,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -234,9 +237,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -266,9 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/03/Openwrt-port-4G-driver/" itemprop="url">Openwrt移植EC20 4G模块</a></h1>
+          <h1 class="post-title" itemprop="name headline">Openwrt移植EC20 4G模块</h1>
         
 
         <div class="post-meta">
@@ -340,9 +341,7 @@
       
 
       
-        
-          
-            <hr>
+        <hr>
 <h4 id="简要说明"><a href="#简要说明" class="headerlink" title="简要说明"></a>简要说明</h4><ul>
 <li>Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20</li>
 </ul>
@@ -382,8 +381,6 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[*] Device Drivers →</span><br><span class="line">    [*] Network device support →</span><br><span class="line">        [*] PPP (point-to-point protocol) support</span><br></pre></td></tr></table></figure></li>
 </ol>
 
-          
-        
       
     </div>
     
@@ -400,174 +397,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/03/Openwrt-create-project/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ian688t6's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/03/Openwrt-create-project/" itemprop="url">Openwrt 创建本地工程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T10:47:40+08:00">
-                2019-01-03
-              </time>
+              <a href="/2019/01/03/Openwrt-create-project/" rel="next" title="Openwrt 创建本地工程">
+                <i class="fa fa-chevron-left"></i> Openwrt 创建本地工程
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/openwrt/" itemprop="url" rel="index">
-                    <span itemprop="name">openwrt</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <hr>
-<h4 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h4><ul>
-<li><p>下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>config.mk openwrt环境变量配置；</p>
-</li>
-<li>config-mt7620a openwrt 的配置；</li>
-<li>dl 预先下载的开源包，openwrt编译耗时很长，在编译的同时也会根据依赖关系在编译过程中下载开源软件，所以预先下载需要的依赖包；</li>
-<li>Makefile 工程的第一层makefile, 功能是backport openwrt的源码；</li>
-<li>openwrt-patch 本地对openwrt官方代码的修改或添加patch;</li>
-<li>openwrt-src.tar.gz openwrt的官方代码；</li>
-</ul>
-<hr>
-<h4 id="工程的Makefile模板"><a href="#工程的Makefile模板" class="headerlink" title="工程的Makefile模板"></a>工程的Makefile模板</h4><ul>
-<li><p>config.mk 功能设置用到的一些环境变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TOP := $(shell <span class="built_in">pwd</span>)</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOURCE		:= openwrt-src</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOURCE_PATCH	:= openwrt-patch</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOC			:= mt7620a</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Makefile 功能依次是解压源码，打补丁，编译</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">include config.mk</span><br><span class="line"></span><br><span class="line">.PHONY:all cleanall prep build clean</span><br><span class="line">all:</span><br><span class="line">	@<span class="built_in">echo</span> <span class="string">"rfbrt all"</span></span><br><span class="line">	<span class="built_in">pushd</span> $(OPENWRT_SOURCE);make -j8;<span class="built_in">popd</span></span><br><span class="line"></span><br><span class="line">cleanall:</span><br><span class="line">	@<span class="built_in">echo</span> <span class="string">"rfbrt clean all"</span></span><br><span class="line">	@rm -rf $(OPENWRT_SOURCE)</span><br><span class="line"></span><br><span class="line">prep:</span><br><span class="line">	@tar xvpf $(OPENWRT_SOURCE).tar.gz </span><br><span class="line">	@cp -R dl $(OPENWRT_SOURCE)</span><br><span class="line">	@cp -rf $(OPENWRT_SOURCE_PATCH)/* $(OPENWRT_SOURCE)</span><br><span class="line">ifeq ($(OPENWRT_SOC),mt7620)</span><br><span class="line">	@cp config-mt7620a $(OPENWRT_SOURCE)/.config</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">ifeq ($(OPENWRT_SOC),mt7621)</span><br><span class="line">	@cp config-mt7621 $(OPENWRT_SOURCE)/.config</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	<span class="built_in">pushd</span> $(OPENWRT_SOURCE);make clean;<span class="built_in">popd</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -577,287 +428,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ian688t6's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/02/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-02T17:23:29+08:00">
-                2019-01-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/02/Openwrt-develop-enviroment/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ian688t6's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/02/Openwrt-develop-enviroment/" itemprop="url">Openwrt 开发环境搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-02T17:09:42+08:00">
-                2019-01-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/openwrt/" itemprop="url" rel="index">
-                    <span itemprop="name">openwrt</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Host-为-ubuntu-16-04，需要预安装的包"><a href="#Host-为-ubuntu-16-04，需要预安装的包" class="headerlink" title="Host 为 ubuntu-16.04，需要预安装的包:"></a>Host 为 ubuntu-16.04，需要预安装的包:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install subversion g++ zlib1g-dev build-essential git python rsync man-db</span><br><span class="line">$ sudo apt-get install libncurses5-dev gawk gettext unzip file libssl-dev wget zip time</span><br></pre></td></tr></table></figure>
-<h4 id="获取-openwrt-源码："><a href="#获取-openwrt-源码：" class="headerlink" title="获取 openwrt 源码："></a>获取 openwrt 源码：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://git.openwrt.org/openwrt/openwrt.git/</span><br><span class="line">$ <span class="built_in">cd</span> openwrt</span><br><span class="line">$ ./scripts/feeds update -a</span><br><span class="line">$ ./scripts/feeds install -a</span><br><span class="line">$ make menuconfig</span><br></pre></td></tr></table></figure>
-<h4 id="固件编译："><a href="#固件编译：" class="headerlink" title="固件编译："></a>固件编译：</h4><ul>
-<li>“Target System” ⇒ “Atheros AR7xxx/AR9xxx”</li>
-<li>“Target Profile” ⇒ “TP-LINK TL-WR841N/ND v11”</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
-<p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make V=s</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -865,6 +440,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -885,8 +464,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -937,6 +525,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简要说明"><span class="nav-number">1.</span> <span class="nav-text">简要说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主要参考"><span class="nav-number">2.</span> <span class="nav-text">主要参考</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#内核驱动移植"><span class="nav-number">3.</span> <span class="nav-text">内核驱动移植</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1070,6 +674,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
