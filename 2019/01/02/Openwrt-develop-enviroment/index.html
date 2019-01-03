@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Host 为 ubuntu-16.04，需要预安装的包:12$ sudo apt-get install subversion g++ zlib1g-dev build-essential git python rsync man-db$ sudo apt-get install libncurses5-dev gawk gettext unzip file libssl-dev wget zip">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-03T01:28:45.749Z">
+<meta property="og:updated_time" content="2019-01-03T01:30:29.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openwrt 开发环境搭建">
 <meta name="twitter:description" content="Host 为 ubuntu-16.04，需要预安装的包:12$ sudo apt-get install subversion g++ zlib1g-dev build-essential git python rsync man-db$ sudo apt-get install libncurses5-dev gawk gettext unzip file libssl-dev wget zip">
@@ -90,15 +90,15 @@
 <h3 id="获取-openwrt-源码："><a href="#获取-openwrt-源码：" class="headerlink" title="获取 openwrt 源码："></a>获取 openwrt 源码：</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://git.openwrt.org/openwrt/openwrt.git/</span><br><span class="line">$ <span class="built_in">cd</span> openwrt</span><br><span class="line">$ ./scripts/feeds update -a</span><br><span class="line">$ ./scripts/feeds install -a</span><br><span class="line">$ make menuconfig</span><br></pre></td></tr></table></figure>
 <h3 id="固件编译："><a href="#固件编译：" class="headerlink" title="固件编译："></a>固件编译：</h3><ul>
 <li>“Target System” ⇒ “Atheros AR7xxx/AR9xxx”</li>
-<li>“Target Profile” ⇒ “TP-LINK TL-WR841N/ND v11”<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
-</li>
+<li>“Target Profile” ⇒ “TP-LINK TL-WR841N/ND v11”</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
 <p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make V=s</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/02/Openwrt-develop-enviroment/" data-id="cjqfxmnf70000v4rb030r27z7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/02/Openwrt-develop-enviroment/" data-id="cjqfxo99q0002p8rbqnggkeu3" class="article-share-link">Share</a>
       
       
     </footer>
