@@ -76,7 +76,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/03/Openwrt-create-project/">Openwrt create project</a>
+      <a class="article-title" href="/2019/01/03/Openwrt-create-project/">Openwrt 创建本地工程</a>
     </h1>
   
 
@@ -85,11 +85,31 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<h4 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md</span><br></pre></td></tr></table></figure>
+<h4 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h4><ul>
+<li><p>下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>config.mk openwrt环境变量配置；</p>
+</li>
+<li>config-mt7620a openwrt 的配置；</li>
+<li>dl 预先下载的开源包，openwrt编译耗时很长，在编译的同时也会根据依赖关系在编译过程中下载开源软件，所以预先下载需要的依赖包；</li>
+<li>Makefile 工程的第一层makefile, 功能是backport openwrt的源码；</li>
+<li>openwrt-patch 本地对openwrt官方代码的修改或添加patch;</li>
+<li>openwrt-src.tar.gz openwrt的官方代码；</li>
+</ul>
+<hr>
+<h4 id="工程的Makefile模板"><a href="#工程的Makefile模板" class="headerlink" title="工程的Makefile模板"></a>工程的Makefile模板</h4><ul>
+<li><p>config.mk 功能设置用到的一些环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TOP := $(shell <span class="built_in">pwd</span>)</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOURCE		:= openwrt-src</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOURCE_PATCH	:= openwrt-patch</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOC			:= mt7620a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Makefile 功能依次是解压源码，打补丁，编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">include config.mk</span><br><span class="line"></span><br><span class="line">.PHONY:all cleanall prep build clean</span><br><span class="line">all:</span><br><span class="line">	@<span class="built_in">echo</span> <span class="string">"rfbrt all"</span></span><br><span class="line">	<span class="built_in">pushd</span> $(OPENWRT_SOURCE);make -j8;<span class="built_in">popd</span></span><br><span class="line"></span><br><span class="line">cleanall:</span><br><span class="line">	@<span class="built_in">echo</span> <span class="string">"rfbrt clean all"</span></span><br><span class="line">	@rm -rf $(OPENWRT_SOURCE)</span><br><span class="line"></span><br><span class="line">prep:</span><br><span class="line">	@tar xvpf $(OPENWRT_SOURCE).tar.gz </span><br><span class="line">	@cp -R dl $(OPENWRT_SOURCE)</span><br><span class="line">	@cp -rf $(OPENWRT_SOURCE_PATCH)/* $(OPENWRT_SOURCE)</span><br><span class="line">ifeq ($(OPENWRT_SOC),mt7620)</span><br><span class="line">	@cp config-mt7620a $(OPENWRT_SOURCE)/.config</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">ifeq ($(OPENWRT_SOC),mt7621)</span><br><span class="line">	@cp config-mt7621 $(OPENWRT_SOURCE)/.config</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	<span class="built_in">pushd</span> $(OPENWRT_SOURCE);make clean;<span class="built_in">popd</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/03/Openwrt-create-project/" data-id="cjqg1xxw500003krb6vrfhsfv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/03/Openwrt-create-project/" data-id="cjqg23ujo00006wrbwsmtg4uz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -134,7 +154,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/02/hello-world/" data-id="cjqg1xxwe00013krby7eeqv0v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/02/hello-world/" data-id="cjqg23uk000026wrbgljpfku4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,7 +198,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/01/02/Openwrt-develop-enviroment/" data-id="cjqg1xxwi00023krbk5mazxvp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/01/02/Openwrt-develop-enviroment/" data-id="cjqg23ujx00016wrbveuph5uf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -219,7 +239,7 @@
       <ul>
         
           <li>
-            <a href="/2019/01/03/Openwrt-create-project/">Openwrt create project</a>
+            <a href="/2019/01/03/Openwrt-create-project/">Openwrt 创建本地工程</a>
           </li>
         
           <li>
