@@ -2,7 +2,7 @@
 <html lang="en_us.utf-8">
 <head>
         <meta charset="utf-8" />
-        <title>Pi 安装 Node.js</title>
+        <title>ian688t6's blog</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -11,52 +11,61 @@
                 <h1><a href="/">ian688t6's blog </a></h1>
                 <nav><ul>
                     <li><a href="/category/openwrt.html">openwrt</a></li>
-                    <li class="active"><a href="/category/pi.html">pi</a></li>
+                    <li><a href="/category/pi.html">pi</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/pi-an-zhuang-nodejs.html" rel="bookmark"
-           title="Permalink to Pi 安装 Node.js">Pi 安装 Node.js</a></h1>
-    </header>
 
-    <div class="entry-content">
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="0">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/pi-an-zhuang-ffmpeg.html" rel="bookmark"
+                           title="Permalink to Pi 安装 FFmpeg">Pi 安装 FFmpeg</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
-        <abbr class="published" title="2019-01-06T19:17:58+08:00">
+        <abbr class="published" title="2019-01-06T20:12:48+08:00">
                 Published: Sun 06 January 2019
         </abbr>
 
         <address class="vcard author">
                 By                         <a class="url fn" href="/author/jian.html">J.Ian</a>
         </address>
-<p>In <a href="/category/pi.html">Pi</a>.</p>
+<p>In <a href="/category/pi.html">pi</a>.</p>
 
-</footer><!-- /.post-info -->      <hr>
-<h4>获取node.js package最新的稳定版本</h4>
-<div class="highlight"><pre><span></span>$ wget http://node-arm.herokuapp.com/node_latest_armhf.deb
+</footer><!-- /.post-info -->                <hr>
+<h4>安装x264</h4>
+<div class="highlight"><pre><span></span>$ git clone git://git.videolan.org/x264
+$ <span class="nb">cd</span> x264
+$ ./configure --host<span class="o">=</span>arm-unknown-linux-gnueabi --enable-static --disable-opencl
+$ make
+$ sudo make install
 </pre></div>
 
 
 <hr>
-<h4>安装</h4>
-<div class="highlight"><pre><span></span>$ sudo dpkg -i node_latest_armhf.deb
-</pre></div>
-
-
-<hr>
-<h4>验证是否安装成功</h4>
-<div class="highlight"><pre><span></span>$ node -v
+<h4>安装ffmpeg</h4>
+<div class="highlight"><pre><span></span>$ git clone https://github.com/FFmpeg/FFmpeg.git
+$ <span class="nb">cd</span> FFmpeg
+$ sudo ./configure --arch<span class="o">=</span>armel --target-os<span class="o">=</span>linux --enable-gpl --enable-libx264 --enable-nonfree
+$ make
+$ sudo make install
 </pre></div>
 
 
 <hr>
 <h4>结束</h4>
-    </div><!-- /.entry-content -->
-
-  </article>
-</section>
+                <a class="readmore" href="/pi-an-zhuang-ffmpeg.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="/index.html">&laquo;</a>
+    Page 2 / 8
+        <a href="/index3.html">&raquo;</a>
+</p>
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

@@ -2,7 +2,7 @@
 <html lang="en_us.utf-8">
 <head>
         <meta charset="utf-8" />
-        <title>Openwrt 调试配置4G模组</title>
+        <title>ian688t6's blog</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -10,19 +10,20 @@
         <header id="banner" class="body">
                 <h1><a href="/">ian688t6's blog </a></h1>
                 <nav><ul>
-                    <li class="active"><a href="/category/openwrt.html">openwrt</a></li>
+                    <li><a href="/category/openwrt.html">openwrt</a></li>
                     <li><a href="/category/pi.html">pi</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/openwrt-diao-shi-pei-zhi-4gmo-zu.html" rel="bookmark"
-           title="Permalink to Openwrt 调试配置4G模组">Openwrt 调试配置4G模组</a></h1>
-    </header>
 
-    <div class="entry-content">
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="0">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/openwrt-diao-shi-pei-zhi-4gmo-zu.html" rel="bookmark"
+                           title="Permalink to Openwrt 调试配置4G模组">Openwrt 调试配置4G模组</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-01-03T16:09:27+08:00">
                 Published: Thu 03 January 2019
@@ -33,7 +34,7 @@
         </address>
 <p>In <a href="/category/openwrt.html">openwrt</a>.</p>
 
-</footer><!-- /.post-info -->      <hr>
+</footer><!-- /.post-info -->                <hr>
 <h4>简要说明</h4>
 <ul>
 <li>
@@ -63,45 +64,17 @@ uqmi - Control utility
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>$ opkg update
-$ opkg install usb-modeswitch kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi
-</pre></div>
-
-
-<hr>
-<h4>openwrt 可选择安装的包</h4>
-<div class="highlight"><pre><span></span>$ opkg update
-$ opkg install kmod-usb-net-cdc-mbim umbim
-$ opkg update
-$ opkg install kmod-usb-serial-option kmod-usb-serial kmod-usb-serial-wwan
-</pre></div>
-
-
-<hr>
-<h4>network 配置</h4>
-<div class="highlight"><pre><span></span>$ vi /etc/config/network
-config interface <span class="s1">&#39;wwan&#39;</span>
-        option ifname <span class="s1">&#39;wwan0&#39;</span>
-        option proto <span class="s1">&#39;dhcp&#39;</span>
-</pre></div>
-
-
-<hr>
-<h4>iptables 配置源地址伪装，以及端口转发</h4>
-<ul>
-<li>可直接在openwrt的防火墙配置界面进行配置</li>
-</ul>
-<div class="highlight"><pre><span></span>    go to Network → Firewall, scroll down to wan and click the Edit button
-    add a checkmark to the wwan box under Covered networks heading, click Save <span class="p">&amp;</span> Apply
-</pre></div>
-
-
-<hr>
-<h4>结束</h4>
-    </div><!-- /.entry-content -->
-
-  </article>
-</section>
+<div class="highlight"><pre><span></span>$ opkg …</pre></div>
+                <a class="readmore" href="/openwrt-diao-shi-pei-zhi-4gmo-zu.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="/index4.html">&laquo;</a>
+    Page 5 / 8
+        <a href="/index6.html">&raquo;</a>
+</p>
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

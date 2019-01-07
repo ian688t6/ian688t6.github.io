@@ -2,7 +2,7 @@
 <html lang="en_us.utf-8">
 <head>
         <meta charset="utf-8" />
-        <title>Openwrt 创建本地工程</title>
+        <title>ian688t6's blog - openwrt</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -14,15 +14,16 @@
                     <li><a href="/category/pi.html">pi</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/openwrt-chuang-jian-ben-di-gong-cheng.html" rel="bookmark"
-           title="Permalink to Openwrt 创建本地工程">Openwrt 创建本地工程</a></h1>
-    </header>
 
-    <div class="entry-content">
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="0">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/openwrt-chuang-jian-ben-di-gong-cheng.html" rel="bookmark"
+                           title="Permalink to Openwrt 创建本地工程">Openwrt 创建本地工程</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-01-03T10:47:40+08:00">
                 Published: Thu 03 January 2019
@@ -33,7 +34,7 @@
         </address>
 <p>In <a href="/category/openwrt.html">openwrt</a>.</p>
 
-</footer><!-- /.post-info -->      <hr>
+</footer><!-- /.post-info -->                <hr>
 <h4>工程目录结构</h4>
 <ul>
 <li>下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改；</li>
@@ -69,48 +70,17 @@
 </ul>
 <div class="highlight"><pre><span></span><span class="nb">export</span> TOP :<span class="o">=</span> <span class="k">$(</span>shell <span class="nb">pwd</span><span class="k">)</span>
 <span class="nb">export</span> OPENWRT_SOURCE       :<span class="o">=</span> openwrt-src
-<span class="nb">export</span> OPENWRT_SOURCE_PATCH :<span class="o">=</span> openwrt-patch
-<span class="nb">export</span> OPENWRT_SOC          :<span class="o">=</span> mt7620a
-</pre></div>
-
-
-<ul>
-<li>Makefile 功能依次是解压源码，打补丁，编译</li>
-</ul>
-<div class="highlight"><pre><span></span>include config.mk
-
-.PHONY:all cleanall prep build clean
-all:
-    @echo <span class="s2">&quot;rfbrt all&quot;</span>
-    <span class="nb">pushd</span> <span class="k">$(</span>OPENWRT_SOURCE<span class="k">)</span><span class="p">;</span>make -j8<span class="p">;</span><span class="nb">popd</span>
-
-cleanall:
-    @echo <span class="s2">&quot;rfbrt clean all&quot;</span>
-    @rm -rf <span class="k">$(</span>OPENWRT_SOURCE<span class="k">)</span>
-
-prep:
-    @tar xvpf <span class="k">$(</span>OPENWRT_SOURCE<span class="k">)</span>.tar.gz 
-    @cp -R dl <span class="k">$(</span>OPENWRT_SOURCE<span class="k">)</span>
-    @cp -rf <span class="k">$(</span>OPENWRT_SOURCE_PATCH<span class="k">)</span>/* <span class="k">$(</span>OPENWRT_SOURCE<span class="k">)</span>
-ifeq <span class="o">(</span><span class="k">$(</span>OPENWRT_SOC<span class="k">)</span>,mt7620<span class="o">)</span>
-    @cp config-mt7620a <span class="k">$(</span>OPENWRT_SOURCE<span class="k">)</span>/.config
-endif
-
-ifeq <span class="o">(</span><span class="k">$(</span>OPENWRT_SOC<span class="k">)</span>,mt7621<span class="o">)</span>
-    @cp config-mt7621 <span class="k">$(</span>OPENWRT_SOURCE<span class="k">)</span>/.config
-endif
-
-clean:
-    <span class="nb">pushd</span> <span class="k">$(</span>OPENWRT_SOURCE<span class="k">)</span><span class="p">;</span>make clean<span class="p">;</span><span class="nb">popd</span>
-</pre></div>
-
-
-<hr>
-<h4>结束</h4>
-    </div><!-- /.entry-content -->
-
-  </article>
-</section>
+<span class="nb">export</span> OPENWRT_SOURCE_PATCH …</pre></div>
+                <a class="readmore" href="/openwrt-chuang-jian-ben-di-gong-cheng.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="/category/openwrt3.html">&laquo;</a>
+    Page 4 / 5
+        <a href="/category/openwrt5.html">&raquo;</a>
+</p>
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>

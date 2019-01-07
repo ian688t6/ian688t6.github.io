@@ -2,7 +2,7 @@
 <html lang="en_us.utf-8">
 <head>
         <meta charset="utf-8" />
-        <title>Openwrt 开发环境搭建</title>
+        <title>ian688t6's blog - openwrt</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 </head>
 
@@ -14,15 +14,16 @@
                     <li><a href="/category/pi.html">pi</a></li>
                 </ul></nav>
         </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="/openwrt-kai-fa-huan-jing-da-jian.html" rel="bookmark"
-           title="Permalink to Openwrt 开发环境搭建">Openwrt 开发环境搭建</a></h1>
-    </header>
 
-    <div class="entry-content">
+                <section id="content" class="body">
+                    <ol id="posts-list" class="hfeed" start="0">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/openwrt-kai-fa-huan-jing-da-jian.html" rel="bookmark"
+                           title="Permalink to Openwrt 开发环境搭建">Openwrt 开发环境搭建</a></h1>
+                </header>
+
+                <div class="entry-content">
 <footer class="post-info">
         <abbr class="published" title="2019-01-02T17:09:42+08:00">
                 Published: Wed 02 January 2019
@@ -33,7 +34,7 @@
         </address>
 <p>In <a href="/category/openwrt.html">openwrt</a>.</p>
 
-</footer><!-- /.post-info -->      <h4>Host 为 ubuntu-16.04，需要预安装的包:</h4>
+</footer><!-- /.post-info -->                <h4>Host 为 ubuntu-16.04，需要预安装的包:</h4>
 <div class="highlight"><pre><span></span>$ sudo apt-get install subversion g++ zlib1g-dev build-essential git python rsync man-db
 $ sudo apt-get install libncurses5-dev gawk gettext unzip file libssl-dev wget zip <span class="nb">time</span>
 </pre></div>
@@ -43,31 +44,16 @@ $ sudo apt-get install libncurses5-dev gawk gettext unzip file libssl-dev wget z
 <div class="highlight"><pre><span></span>$ git clone https://git.openwrt.org/openwrt/openwrt.git/
 $ <span class="nb">cd</span> openwrt
 $ ./scripts/feeds update -a
-$ ./scripts/feeds install -a
-$ make menuconfig
-</pre></div>
-
-
-<h4>固件编译：</h4>
-<ul>
-<li>“Target System” ⇒ “Atheros AR7xxx/AR9xxx”</li>
-<li>“Target Profile” ⇒ “TP-LINK TL-WR841N/ND v11”</li>
-</ul>
-<div class="highlight"><pre><span></span>$ make
-</pre></div>
-
-
-<p>or</p>
-<div class="highlight"><pre><span></span>$ make <span class="nv">V</span><span class="o">=</span>s
-</pre></div>
-
-
-<hr>
-<h4>结束</h4>
-    </div><!-- /.entry-content -->
-
-  </article>
-</section>
+$ ./scripts/feeds install -a …</pre></div>
+                <a class="readmore" href="/openwrt-kai-fa-huan-jing-da-jian.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+                </ol><!-- /#posts-list -->
+<p class="paginator">
+        <a href="/category/openwrt4.html">&laquo;</a>
+    Page 5 / 5
+</p>
+                </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
