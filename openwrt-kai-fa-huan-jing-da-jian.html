@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>Openwrt 开发环境搭建</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">ian688t6's blog </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/openwrt.html">openwrt</a></li>
+                    <li><a href="/category/pi.html">pi</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+<section id="content" class="body">
+  <article>
+    <header>
+      <h1 class="entry-title">
+        <a href="/openwrt-kai-fa-huan-jing-da-jian.html" rel="bookmark"
+           title="Permalink to Openwrt 开发环境搭建">Openwrt 开发环境搭建</a></h1>
+    </header>
+
+    <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-01-02T17:09:42+08:00">
+                Published: Wed 02 January 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/jian.html">J.Ian</a>
+        </address>
+<p>In <a href="/category/openwrt.html">openwrt</a>.</p>
+
+</footer><!-- /.post-info -->      <h4>Host 为 ubuntu-16.04，需要预安装的包:</h4>
+<div class="highlight"><pre><span></span>$ sudo apt-get install subversion g++ zlib1g-dev build-essential git python rsync man-db
+$ sudo apt-get install libncurses5-dev gawk gettext unzip file libssl-dev wget zip <span class="nb">time</span>
+</pre></div>
+
+
+<h4>获取 openwrt 源码：</h4>
+<div class="highlight"><pre><span></span>$ git clone https://git.openwrt.org/openwrt/openwrt.git/
+$ <span class="nb">cd</span> openwrt
+$ ./scripts/feeds update -a
+$ ./scripts/feeds install -a
+$ make menuconfig
+</pre></div>
+
+
+<h4>固件编译：</h4>
+<ul>
+<li>“Target System” ⇒ “Atheros AR7xxx/AR9xxx”</li>
+<li>“Target Profile” ⇒ “TP-LINK TL-WR841N/ND v11”</li>
+</ul>
+<div class="highlight"><pre><span></span>$ make
+</pre></div>
+
+
+<p>or</p>
+<div class="highlight"><pre><span></span>$ make <span class="nv">V</span><span class="o">=</span>s
+</pre></div>
+
+
+<hr>
+<h4>结束</h4>
+    </div><!-- /.entry-content -->
+
+  </article>
+</section>
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
