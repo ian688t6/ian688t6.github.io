@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="简要说明 参考taget/linux下其他设备的目录结构, Openwrt 添加新设备 RuiFeng Bus Wrt (cpu=mt7620a, flash=16M)  添加target.mk配置12$ cd openwrt/target/linux/ramips/image$ vim mt7620.mk 12345678define Device/rf-bwrt  DTS := RF-BWR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Openwrt 添加一个新设备">
+<meta property="og:url" content="http://github.com/ian688t6/2019/01/07/Openwrt-add-a-new-device/index.html">
+<meta property="og:site_name" content="ian688t6&#39;s Blog">
+<meta property="og:description" content="简要说明 参考taget/linux下其他设备的目录结构, Openwrt 添加新设备 RuiFeng Bus Wrt (cpu=mt7620a, flash=16M)  添加target.mk配置12$ cd openwrt/target/linux/ramips/image$ vim mt7620.mk 12345678define Device/rf-bwrt  DTS := RF-BWR">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-01-07T07:37:56.702Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Openwrt 添加一个新设备">
+<meta name="twitter:description" content="简要说明 参考taget/linux下其他设备的目录结构, Openwrt 添加新设备 RuiFeng Bus Wrt (cpu=mt7620a, flash=16M)  添加target.mk配置12$ cd openwrt/target/linux/ramips/image$ vim mt7620.mk 12345678define Device/rf-bwrt  DTS := RF-BWR">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://github.com/ian688t6/2019/01/07/Openwrt-add-a-new-device/">
+
+
+
+
+
+  <title>Openwrt 添加一个新设备 | ian688t6's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ian688t6's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/07/Openwrt-add-a-new-device/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J. Ian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ian688t6's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Openwrt 添加一个新设备</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-07T15:23:51+08:00">
+                2019-01-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/openwrt/" itemprop="url" rel="index">
+                    <span itemprop="name">openwrt</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <hr>
+<h4 id="简要说明"><a href="#简要说明" class="headerlink" title="简要说明"></a>简要说明</h4><ul>
+<li>参考taget/linux下其他设备的目录结构, Openwrt 添加新设备 RuiFeng Bus Wrt (cpu=mt7620a, flash=16M)</li>
+</ul>
+<h4 id="添加target-mk配置"><a href="#添加target-mk配置" class="headerlink" title="添加target.mk配置"></a>添加target.mk配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> openwrt/target/linux/ramips/image</span><br><span class="line">$ vim mt7620.mk</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">define Device/rf-bwrt</span><br><span class="line">  DTS := RF-BWRT</span><br><span class="line">  IMAGE_SIZE := $(ralink_default_fw_size_16M)</span><br><span class="line">  SUPPORTED_DEVICES += rf-bwrt</span><br><span class="line">  DEVICE_TITLE := RuiFeng Bus Wrt (16M)</span><br><span class="line">  DEVICE_PACKAGES := kmod-mt76x2 kmod-usb2 kmod-usb-ohci kmod-sdhci-mt7620</span><br><span class="line">endef</span><br><span class="line">TARGET_DEVICES += rf-bwrt</span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="添加dts配置文件"><a href="#添加dts配置文件" class="headerlink" title="添加dts配置文件"></a>添加dts配置文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> openwrt/target/linux/ramips/dts</span><br><span class="line">$ touch RF-BWRT.dts  RF-BWRT.dtsi</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">$ vim RF-BWRT.dts</span><br><span class="line">/dts-v1/;</span><br><span class="line"></span><br><span class="line"><span class="comment">#include "RF-BWRT.dtsi"</span></span><br><span class="line"></span><br><span class="line">/ &#123;</span><br><span class="line">	compatible = <span class="string">"rflink,rf-bwrt"</span>, <span class="string">"ralink,mt7620a-soc"</span>;</span><br><span class="line">	model = <span class="string">"RF-BWRT"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;spi0 &#123;</span><br><span class="line">	status = <span class="string">"okay"</span>;</span><br><span class="line"></span><br><span class="line">	en25q128@0 &#123;</span><br><span class="line">		compatible = <span class="string">"jedec,spi-nor"</span>;</span><br><span class="line">		reg = &lt;0&gt;;</span><br><span class="line">		spi-max-frequency = &lt;10000000&gt;;</span><br><span class="line"></span><br><span class="line">		partitions &#123;</span><br><span class="line">			compatible = <span class="string">"fixed-partitions"</span>;</span><br><span class="line">			<span class="comment">#address-cells = &lt;1&gt;;</span></span><br><span class="line">			<span class="comment">#size-cells = &lt;1&gt;;</span></span><br><span class="line"></span><br><span class="line">			partition@0 &#123;</span><br><span class="line">				label = <span class="string">"u-boot"</span>;</span><br><span class="line">				reg = &lt;0x0 0x30000&gt;;</span><br><span class="line">				<span class="built_in">read</span>-only;</span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line">			partition@30000 &#123;</span><br><span class="line">				label = <span class="string">"u-boot-env"</span>;</span><br><span class="line">				reg = &lt;0x30000 0x10000&gt;;</span><br><span class="line">				<span class="built_in">read</span>-only;</span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line">			factory: partition@40000 &#123;</span><br><span class="line">				label = <span class="string">"factory"</span>;</span><br><span class="line">				reg = &lt;0x40000 0x10000&gt;;</span><br><span class="line">				<span class="built_in">read</span>-only;</span><br><span class="line">			&#125;;</span><br><span class="line"></span><br><span class="line">			firmware: partition@50000 &#123;</span><br><span class="line">				compatible = <span class="string">"denx,uimage"</span>;</span><br><span class="line">				label = <span class="string">"firmware"</span>;</span><br><span class="line">				reg = &lt;0x50000 0xfb0000&gt;;</span><br><span class="line">			&#125;;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">$ vim RF-BWRT.dts</span><br><span class="line"><span class="comment">#include "mt7620a.dtsi"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#include &lt;dt-bindings/gpio/gpio.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;dt-bindings/input/input.h&gt;</span></span><br><span class="line"></span><br><span class="line">/ &#123;</span><br><span class="line">	compatible = <span class="string">"rflink,rf-bwrt"</span>, <span class="string">"ralink,mt7620a-soc"</span>;</span><br><span class="line"></span><br><span class="line">	aliases &#123;</span><br><span class="line">		led-boot = &amp;led_power;</span><br><span class="line">		led-failsafe = &amp;led_power;</span><br><span class="line">		led-running = &amp;led_power;</span><br><span class="line">		led-upgrade = &amp;led_power;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	chosen &#123;</span><br><span class="line">		bootargs = <span class="string">"console=ttyS0,57600"</span>;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	gpio-leds &#123;</span><br><span class="line">		compatible = <span class="string">"gpio-leds"</span>;</span><br><span class="line">		led_power: power &#123;</span><br><span class="line">			label = <span class="string">"rf-bwrt:green:power"</span>;</span><br><span class="line">			gpios = &lt;&amp;gpio1 14 GPIO_ACTIVE_HIGH&gt;;</span><br><span class="line">		&#125;;</span><br><span class="line">		usb &#123;</span><br><span class="line">			label = <span class="string">"rf-bwrt:green:usb"</span>;</span><br><span class="line">			gpios = &lt;&amp;gpio1 15 GPIO_ACTIVE_HIGH&gt;;</span><br><span class="line">			trigger-sources = &lt;&amp;ohci_port1&gt;, &lt;&amp;ehci_port1&gt;;</span><br><span class="line">			linux,default-trigger = <span class="string">"usbport"</span>;</span><br><span class="line">		&#125;;</span><br><span class="line">		air &#123;</span><br><span class="line">			label = <span class="string">"rf-bwrt:green:wifi"</span>;</span><br><span class="line">			gpios = &lt;&amp;gpio3 0 GPIO_ACTIVE_LOW&gt;;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	gpio-keys-polled &#123;</span><br><span class="line">		compatible = <span class="string">"gpio-keys-polled"</span>;</span><br><span class="line">		poll-interval = &lt;20&gt;;</span><br><span class="line">		reset &#123;</span><br><span class="line">			label = <span class="string">"reset"</span>;</span><br><span class="line">			gpios = &lt;&amp;gpio0 1 GPIO_ACTIVE_LOW&gt;;</span><br><span class="line">			linux,code = &lt;KEY_RESTART&gt;;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;gpio0 &#123;</span><br><span class="line">	status = <span class="string">"okay"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;gpio1 &#123;</span><br><span class="line">	status = <span class="string">"okay"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;gpio3 &#123;</span><br><span class="line">	status = <span class="string">"okay"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;sdhci &#123;</span><br><span class="line">	status = <span class="string">"okay"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;ehci &#123;</span><br><span class="line">	status = <span class="string">"okay"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;ohci &#123;</span><br><span class="line">	status = <span class="string">"okay"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;ethernet &#123;</span><br><span class="line">	mtd-mac-address = &lt;&amp;factory 0x4&gt;;</span><br><span class="line">	mediatek,portmap = <span class="string">"wllll"</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;wmac &#123;</span><br><span class="line">	ralink,mtd-eeprom = &lt;&amp;factory 0&gt;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;pinctrl &#123;</span><br><span class="line">	state_default: pinctrl0 &#123;</span><br><span class="line">		default &#123;</span><br><span class="line">			ralink,group = <span class="string">"i2c"</span>, <span class="string">"uartf"</span>, <span class="string">"wled"</span>, <span class="string">"spi refclk"</span>, <span class="string">"pa"</span>;</span><br><span class="line">			ralink,<span class="keyword">function</span> = <span class="string">"gpio"</span>;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&amp;pcie &#123;</span><br><span class="line">	status = <span class="string">"okay"</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/03/Openwrt-debug-4G-module/" rel="next" title="Openwrt 调试配置4G模组">
+                <i class="fa fa-chevron-left"></i> Openwrt 调试配置4G模组
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">J. Ian</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简要说明"><span class="nav-number">1.</span> <span class="nav-text">简要说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加target-mk配置"><span class="nav-number">2.</span> <span class="nav-text">添加target.mk配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加dts配置文件"><span class="nav-number">3.</span> <span class="nav-text">添加dts配置文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">J. Ian</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
