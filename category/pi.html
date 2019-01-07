@@ -51,21 +51,114 @@ $ sudo make install
 <hr>
 <h4>结束</h4>                </article>
             </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <hr />
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/pi-an-zhuang-nodejs.html" rel="bookmark"
+                           title="Permalink to Pi 安装 Node.js">Pi 安装 Node.js</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-01-06T19:17:58+08:00">
+                Published: Sun 06 January 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/jian.html">J.Ian</a>
+        </address>
+<p>In <a href="/category/pi.html">Pi</a>.</p>
+
+</footer><!-- /.post-info -->                <hr>
+<h4>获取node.js package最新的稳定版本</h4>
+<div class="highlight"><pre><span></span>$ wget http://node-arm.herokuapp.com/node_latest_armhf.deb
+</pre></div>
+
+
+<hr>
+<h4>安装</h4>
+<div class="highlight"><pre><span></span>$ sudo dpkg -i node_latest_armhf.deb
+</pre></div>
+
+
+<hr>
+<h4>验证是否安装成功</h4>
+<div class="highlight"><pre><span></span>$ node -v
+</pre></div>
+
+
+<hr>
+<h4>结束</h4>
+                <a class="readmore" href="/pi-an-zhuang-nodejs.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/pi-pei-zhi-she-xiang-tou.html" rel="bookmark"
+                           title="Permalink to Pi 配置摄像头">Pi 配置摄像头</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2019-01-06T17:43:16+08:00">
+                Published: Sun 06 January 2019
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/jian.html">J.Ian</a>
+        </address>
+<p>In <a href="/category/pi.html">pi</a>.</p>
+
+</footer><!-- /.post-info -->                <hr>
+<h4>安装</h4>
+<ul>
+<li>摄像头模组安装到pi的mipi接口上</li>
+</ul>
+<hr>
+<h4>配置</h4>
+<div class="highlight"><pre><span></span>$ sudo raspi-config
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="m">5</span> Intefacing Options    Configure connections to peripherals
+    P1 Camera   Enable/Disable connection to Raspberry Pi Camera
+</pre></div>
+
+
+<hr>
+<h4>测试</h4>
+<div class="highlight"><pre><span></span>$ raspstill -v -f
+</pre></div>
+
+
+<hr>
+<h4>结束</h4>
+                <a class="readmore" href="/pi-pei-zhi-she-xiang-tou.html">read more</a>
+                </div><!-- /.entry-content -->
+            </article></li>
                 </ol><!-- /#posts-list -->
-<p class="paginator">
-    Page 1 / 3
-        <a href="/category/pi2.html">&raquo;</a>
-</p>
                 </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">
                         <h2>links</h2>
                         <ul>
+                            <li><a href="https://github.com/ian688t6">github</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
                             <li><a href="http://getpelican.com/">Pelican</a></li>
                             <li><a href="http://python.org/">Python.org</a></li>
                             <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
                         </ul>
-                </div><!-- /.blogroll -->
+                </div><!-- /.social -->
         </section><!-- /#extras -->
 
         <footer id="contentinfo" class="body">
