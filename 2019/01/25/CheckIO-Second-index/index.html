@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="工程目录结构 下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改； 1$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md  config.mk openwrt环境变量配置；  config-mt7620">
+<meta name="description" content="My solution for CheckIO “second-index” Description: You are given two strings and you have to find an index of the second occurrence of the second string in the first one. Let’s go through the first e">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Openwrt 创建本地工程">
-<meta property="og:url" content="http://github.com/ian688t6/2019/01/03/Openwrt-create-project/index.html">
+<meta property="og:title" content="My solution for CheckIO Second index">
+<meta property="og:url" content="http://github.com/ian688t6/2019/01/25/CheckIO-Second-index/index.html">
 <meta property="og:site_name" content="ian688t6&#39;s Blog">
-<meta property="og:description" content="工程目录结构 下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改； 1$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md  config.mk openwrt环境变量配置；  config-mt7620">
+<meta property="og:description" content="My solution for CheckIO “second-index” Description: You are given two strings and you have to find an index of the second occurrence of the second string in the first one. Let’s go through the first e">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-03T08:40:22.656Z">
+<meta property="og:updated_time" content="2019-01-24T23:49:04.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Openwrt 创建本地工程">
-<meta name="twitter:description" content="工程目录结构 下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改； 1$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md  config.mk openwrt环境变量配置；  config-mt7620">
+<meta name="twitter:title" content="My solution for CheckIO Second index">
+<meta name="twitter:description" content="My solution for CheckIO “second-index” Description: You are given two strings and you have to find an index of the second occurrence of the second string in the first one. Let’s go through the first e">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/ian688t6/2019/01/03/Openwrt-create-project/">
+  <link rel="canonical" href="http://github.com/ian688t6/2019/01/25/CheckIO-Second-index/">
 
 
 
 
 
-  <title>Openwrt 创建本地工程 | ian688t6's Blog</title>
+  <title>My solution for CheckIO Second index | ian688t6's Blog</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/03/Openwrt-create-project/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/25/CheckIO-Second-index/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="J. Ian">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Openwrt 创建本地工程</h1>
+          <h1 class="post-title" itemprop="name headline">My solution for CheckIO Second index</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T10:47:40+08:00">
-                2019-01-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T07:44:12+08:00">
+                2019-01-25
               </time>
             
 
@@ -294,8 +294,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/openwrt/" itemprop="url" rel="index">
-                    <span itemprop="name">openwrt</span>
+                  <a href="/categories/checkio/" itemprop="url" rel="index">
+                    <span itemprop="name">checkio</span>
                   </a>
                 </span>
 
@@ -331,35 +331,11 @@
       
 
       
-        <hr>
-<h4 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h4><ul>
-<li><p>下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>config.mk openwrt环境变量配置；</p>
-</li>
-<li><p>config-mt7620a openwrt 的配置；</p>
-</li>
-<li><p>dl 预先下载的开源包，openwrt编译耗时很长，在编译的同时也会根据依赖关系在编译过程中下载开源软件，所以预先下载需要的依赖包；</p>
-</li>
-<li><p>Makefile 工程的第一层makefile, 功能是backport openwrt的源码；</p>
-</li>
-<li><p>openwrt-patch 本地对openwrt官方代码的修改或添加patch;</p>
-</li>
-<li><p>openwrt-src.tar.gz openwrt的官方代码；</p>
-</li>
-</ul>
+        <h2 id="My-solution-for-CheckIO-“second-index”"><a href="#My-solution-for-CheckIO-“second-index”" class="headerlink" title="My solution for CheckIO “second-index”"></a>My solution for CheckIO “second-index”</h2><hr>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> You are given two strings and you have to find an index of the second occurrence of the second string in the first one.</p>
+<p>Let’s go through the first example where you need to find the second occurrence of “s” in a word “sims”. It’s easy to find its first occurrence with a function index or find which will point out that “s” is the first symbol in a word “sims” and therefore the index of the first occurrence is 0. But we have to find the second “s” which is 4th in a row and that means that the index of the second occurrence (and the answer to a question) is 3. </p>
 <hr>
-<h4 id="工程的Makefile模板"><a href="#工程的Makefile模板" class="headerlink" title="工程的Makefile模板"></a>工程的Makefile模板</h4><ul>
-<li><p>config.mk 功能设置用到的一些环境变量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TOP := $(shell <span class="built_in">pwd</span>)</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOURCE		:= openwrt-src</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOURCE_PATCH	:= openwrt-patch</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOC			:= mt7620a</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Makefile 功能依次是解压源码，打补丁，编译</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">include config.mk</span><br><span class="line"></span><br><span class="line">.PHONY:all cleanall prep build clean</span><br><span class="line">all:</span><br><span class="line">	@<span class="built_in">echo</span> <span class="string">"rfbrt all"</span></span><br><span class="line">	<span class="built_in">pushd</span> $(OPENWRT_SOURCE);make -j8;<span class="built_in">popd</span></span><br><span class="line"></span><br><span class="line">cleanall:</span><br><span class="line">	@<span class="built_in">echo</span> <span class="string">"rfbrt clean all"</span></span><br><span class="line">	@rm -rf $(OPENWRT_SOURCE)</span><br><span class="line"></span><br><span class="line">prep:</span><br><span class="line">	@tar xvpf $(OPENWRT_SOURCE).tar.gz </span><br><span class="line">	@cp -R dl $(OPENWRT_SOURCE)</span><br><span class="line">	@cp -rf $(OPENWRT_SOURCE_PATCH)/* $(OPENWRT_SOURCE)</span><br><span class="line">ifeq ($(OPENWRT_SOC),mt7620)</span><br><span class="line">	@cp config-mt7620a $(OPENWRT_SOURCE)/.config</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">ifeq ($(OPENWRT_SOC),mt7621)</span><br><span class="line">	@cp config-mt7621 $(OPENWRT_SOURCE)/.config</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	<span class="built_in">pushd</span> $(OPENWRT_SOURCE);make clean;<span class="built_in">popd</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">second_index</span><span class="params">(text: str, symbol: str)</span> -&gt; [int, <span class="keyword">None</span>]:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        begin = text.index(symbol)</span><br><span class="line">        ret = text.index(symbol, begin + <span class="number">1</span>, len(text))</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(second_index(<span class="string">"sims"</span>, <span class="string">"s"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># These "asserts" are used for self-checking and not for an auto-testing</span></span><br><span class="line">print(second_index(<span class="string">"sims"</span>, <span class="string">"s"</span>))</span><br><span class="line">print(second_index(<span class="string">"find the river"</span>, <span class="string">"e"</span>))</span><br><span class="line">print(second_index(<span class="string">"hi"</span>, <span class="string">" "</span>))</span><br><span class="line">print(second_index(<span class="string">"hi mayor"</span>, <span class="string">" "</span>))</span><br><span class="line">print(second_index(<span class="string">"hi mr Mayor"</span>, <span class="string">" "</span>))</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -383,8 +359,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/02/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2019/01/25/CheckIO-Between-markers/" rel="next" title="My solution for CheckIO Between markers">
+                <i class="fa fa-chevron-left"></i> My solution for CheckIO Between markers
               </a>
             
           </div>
@@ -392,10 +368,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/03/Openwrt-port-4G-driver/" rel="prev" title="Openwrt 移植EC20 4G模块">
-                Openwrt 移植EC20 4G模块 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -518,7 +490,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#工程目录结构"><span class="nav-number">1.</span> <span class="nav-text">工程目录结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#工程的Makefile模板"><span class="nav-number">2.</span> <span class="nav-text">工程的Makefile模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结束"><span class="nav-number">3.</span> <span class="nav-text">结束</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#My-solution-for-CheckIO-“second-index”"><span class="nav-number">1.</span> <span class="nav-text">My solution for CheckIO “second-index”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution:</span></a></li></ol></li></ol></div>
             
 
           </div>
