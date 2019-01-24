@@ -239,6 +239,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/24/CheckIO-Bigger-price/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J. Ian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ian688t6's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/24/CheckIO-Bigger-price/" itemprop="url">CheckIO Bigger-price</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-24T16:58:42+08:00">
+                2019-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="My-solution-for-CheckIO-“bigger-price”"><a href="#My-solution-for-CheckIO-“bigger-price”" class="headerlink" title="My solution for CheckIO “bigger-price”"></a>My solution for CheckIO “bigger-price”</h2><hr>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> You have a table with all available goods in the store. The data is represented as a list of dicts</p>
+<p>Your mission here is to find the TOP most expensive goods. The amount we are looking for will be given as a first argument and the whole data as the second one</p>
+<p>Input: int and list of dicts. Each dicts has two keys “name” and “price”</p>
+<p>Output: the same as the second Input argument. </p>
+<hr>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bigger_price</span><span class="params">(limit: int, data: list)</span> -&gt; list:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">        TOP most expensive goods</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># your code here</span></span><br><span class="line">    foods = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(limit):</span><br><span class="line">        food = data.pop(data.index(max(data, key=<span class="keyword">lambda</span> k: k[<span class="string">'price'</span>])))</span><br><span class="line">        foods.append(food)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> foods</span><br></pre></td></tr></table></figure>
+<h3 id="Creative-Solution"><a href="#Creative-Solution" class="headerlink" title="Creative Solution:"></a>Creative Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bigger_price</span><span class="params">(limit: int, data: list)</span> -&gt; list:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> list(reversed(sorted(data, key=<span class="keyword">lambda</span> k: k[<span class="string">'price'</span>])))[<span class="number">0</span>:limit]</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/07/Openwrt-add-a-new-device/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1670,7 +1797,7 @@ uqmi - Control utility
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
