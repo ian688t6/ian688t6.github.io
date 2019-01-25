@@ -239,6 +239,158 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/25/CheckIO-secret-message/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J. Ian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ian688t6's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/25/CheckIO-secret-message/" itemprop="url">My solution for CheckIO secret-mssage</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T15:06:15+08:00">
+                2019-01-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/checkio/" itemprop="url" rel="index">
+                    <span itemprop="name">checkio</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="My-solution-for-CheckIO-“secret-mssage”"><a href="#My-solution-for-CheckIO-“secret-mssage”" class="headerlink" title="My solution for CheckIO “secret-mssage”"></a>My solution for CheckIO “secret-mssage”</h2><hr>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> Ever tried to send a secret message to someone without using the postal service? You could use newspapers to tell your secret. Even if someone finds your message, it’s easy to brush them off as paranoid and as a conspiracy theorist. One of the simplest ways to hide a secret message is to use capital letters. Let’s find some of these secret messages.</p>
+<p>You are given a chunk of text. Gather all capital letters in one word in the order that they appear in the text.</p>
+<p>For example: text = “How are you? Eh, ok. Low or Lower? Ohhh.”, if we collect all of the capital letters, we get the message “HELLO”.</p>
+<p>Input: A text as a string (unicode).</p>
+<p>Output: The secret message as a string or an empty string.</p>
+<p>Precondition: 0 &lt; len(text) ≤ 1000<br>all(ch in string.printable for ch in text</p>
+<hr>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_message</span><span class="params">(text: str)</span> -&gt; str:</span></span><br><span class="line">    new_texts = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(text)):</span><br><span class="line">        <span class="keyword">if</span> text[i].isupper():</span><br><span class="line">            new_texts.append(text[i])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># import re</span></span><br><span class="line">    <span class="comment"># "".join(list(map(lambda x: x if x.isupper() else x[0], re.compile(r'\b[A-Z][a-zA-Z]*\b').findall(text))))</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>.join(new_texts)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line">    <span class="keyword">assert</span> find_message(<span class="string">"How are you? Eh, ok. Low or Lower? Ohhh."</span>) == <span class="string">"HELLO"</span>, <span class="string">"hello"</span></span><br><span class="line">    <span class="keyword">assert</span> find_message(<span class="string">"hello world!"</span>) == <span class="string">""</span>, <span class="string">"Nothing"</span></span><br><span class="line">    <span class="keyword">assert</span> find_message(<span class="string">"HELLO WORLD!!!"</span>) == <span class="string">"HELLOWORLD"</span>, <span class="string">"Capitals"</span></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to review your tests and earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="Creative-Solution"><a href="#Creative-Solution" class="headerlink" title="Creative Solution:"></a>Creative Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_message</span><span class="params">(text: str)</span> -&gt; str:</span></span><br><span class="line">    <span class="string">"""Find a secret message"""</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join([char <span class="keyword">for</span> char <span class="keyword">in</span> text <span class="keyword">if</span> char.isupper()])</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/25/CheckIO-even-last/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1565,178 +1717,6 @@ If the final marker comes before the initial marker, then return an empty string
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/03/Openwrt-debug-4G-module/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="J. Ian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ian688t6's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/03/Openwrt-debug-4G-module/" itemprop="url">Openwrt 调试配置4G模组</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T16:09:27+08:00">
-                2019-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/openwrt/" itemprop="url" rel="index">
-                    <span itemprop="name">openwrt</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <hr>
-<h4 id="简要说明"><a href="#简要说明" class="headerlink" title="简要说明"></a>简要说明</h4><ul>
-<li><p>Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20;</p>
-</li>
-<li><p>移植好4G模块的内核驱动后，主要是对4G模块进行配置；</p>
-</li>
-<li><p>4G模块至少有两种配置协议，一种是ppp拨号方式，第二种是qmi方式；</p>
-</li>
-<li><p>如果路由器或者是modem只支持AT命令的方式那么就只能通过拨号方式上网了；</p>
-</li>
-<li><p>QMI方式会比ppp拨号方式要稳定，并且连接更快；</p>
-</li>
-</ul>
-<hr>
-<h4 id="openwrt-路由器需要安装的包"><a href="#openwrt-路由器需要安装的包" class="headerlink" title="openwrt 路由器需要安装的包"></a>openwrt 路由器需要安装的包</h4><pre><code>usb-modeswitch - It will automatically issue a “special” command to the modem for switching it into the “Working” state
-kmod-mii - Mii driver
-kmod-usb-net - USB to Ethernet
-kmod-usb-wdm
-kmod-usb-net-qmi-wwan
-uqmi - Control utility
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ opkg update</span><br><span class="line">$ opkg install usb-modeswitch kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="openwrt-可选择安装的包"><a href="#openwrt-可选择安装的包" class="headerlink" title="openwrt 可选择安装的包"></a>openwrt 可选择安装的包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ opkg update</span><br><span class="line">$ opkg install kmod-usb-net-cdc-mbim umbim</span><br><span class="line">$ opkg update</span><br><span class="line">$ opkg install kmod-usb-serial-option kmod-usb-serial kmod-usb-serial-wwan</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="network-配置"><a href="#network-配置" class="headerlink" title="network 配置"></a>network 配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vi /etc/config/network</span><br><span class="line">config interface <span class="string">'wwan'</span></span><br><span class="line">        option ifname <span class="string">'wwan0'</span></span><br><span class="line">        option proto <span class="string">'dhcp'</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="iptables-配置源地址伪装，以及端口转发"><a href="#iptables-配置源地址伪装，以及端口转发" class="headerlink" title="iptables 配置源地址伪装，以及端口转发"></a>iptables 配置源地址伪装，以及端口转发</h4><ul>
-<li>可直接在openwrt的防火墙配置界面进行配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go to Network → Firewall, scroll down to wan and click the Edit button</span><br><span class="line">add a checkmark to the wwan box under Covered networks heading, click Save &amp; Apply</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1787,7 +1767,7 @@ uqmi - Control utility
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
