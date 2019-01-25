@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="My solution for CheckIO “bigger-price” Description: You have a table with all available goods in the store. The data is represented as a list of dicts Your mission here is to find the TOP most expensi">
+<meta name="description" content="My solution for CheckIO “index-power” Description: You are given an array with positive numbers and a number N. You should find the N-th power of the element in the array with the index N. If N is out">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CheckIO Bigger-price">
-<meta property="og:url" content="http://github.com/ian688t6/2019/01/24/CheckIO-Bigger-price/index.html">
+<meta property="og:title" content="My solution for CheckIO index-power">
+<meta property="og:url" content="http://github.com/ian688t6/2019/01/25/CheckIO-index-power/index.html">
 <meta property="og:site_name" content="ian688t6&#39;s Blog">
-<meta property="og:description" content="My solution for CheckIO “bigger-price” Description: You have a table with all available goods in the store. The data is represented as a list of dicts Your mission here is to find the TOP most expensi">
+<meta property="og:description" content="My solution for CheckIO “index-power” Description: You are given an array with positive numbers and a number N. You should find the N-th power of the element in the array with the index N. If N is out">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-24T09:11:01.855Z">
+<meta property="og:updated_time" content="2019-01-25T08:46:52.053Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CheckIO Bigger-price">
-<meta name="twitter:description" content="My solution for CheckIO “bigger-price” Description: You have a table with all available goods in the store. The data is represented as a list of dicts Your mission here is to find the TOP most expensi">
+<meta name="twitter:title" content="My solution for CheckIO index-power">
+<meta name="twitter:description" content="My solution for CheckIO “index-power” Description: You are given an array with positive numbers and a number N. You should find the N-th power of the element in the array with the index N. If N is out">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/ian688t6/2019/01/24/CheckIO-Bigger-price/">
+  <link rel="canonical" href="http://github.com/ian688t6/2019/01/25/CheckIO-index-power/">
 
 
 
 
 
-  <title>CheckIO Bigger-price | ian688t6's Blog</title>
+  <title>My solution for CheckIO index-power | ian688t6's Blog</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/24/CheckIO-Bigger-price/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/25/CheckIO-index-power/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="J. Ian">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CheckIO Bigger-price</h1>
+          <h1 class="post-title" itemprop="name headline">My solution for CheckIO index-power</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-24T16:58:42+08:00">
-                2019-01-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T16:46:13+08:00">
+                2019-01-25
               </time>
             
 
@@ -331,15 +331,16 @@
       
 
       
-        <h2 id="My-solution-for-CheckIO-“bigger-price”"><a href="#My-solution-for-CheckIO-“bigger-price”" class="headerlink" title="My solution for CheckIO “bigger-price”"></a>My solution for CheckIO “bigger-price”</h2><hr>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> You have a table with all available goods in the store. The data is represented as a list of dicts</p>
-<p>Your mission here is to find the TOP most expensive goods. The amount we are looking for will be given as a first argument and the whole data as the second one</p>
-<p>Input: int and list of dicts. Each dicts has two keys “name” and “price”</p>
-<p>Output: the same as the second Input argument. </p>
-<hr>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bigger_price</span><span class="params">(limit: int, data: list)</span> -&gt; list:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">        TOP most expensive goods</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># your code here</span></span><br><span class="line">    foods = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(limit):</span><br><span class="line">        food = data.pop(data.index(max(data, key=<span class="keyword">lambda</span> k: k[<span class="string">'price'</span>])))</span><br><span class="line">        foods.append(food)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> foods</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line">    print(<span class="string">'Example:'</span>)</span><br><span class="line">    pprint(bigger_price(<span class="number">2</span>, [</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"bread"</span>, <span class="string">"price"</span>: <span class="number">100</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"wine"</span>, <span class="string">"price"</span>: <span class="number">138</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"meat"</span>, <span class="string">"price"</span>: <span class="number">15</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"water"</span>, <span class="string">"price"</span>: <span class="number">1</span>&#125;</span><br><span class="line">    ]))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># These "asserts" using for self-checking and not for auto-testing</span></span><br><span class="line">    <span class="keyword">assert</span> bigger_price(<span class="number">2</span>, [</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"bread"</span>, <span class="string">"price"</span>: <span class="number">100</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"wine"</span>, <span class="string">"price"</span>: <span class="number">138</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"meat"</span>, <span class="string">"price"</span>: <span class="number">15</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"water"</span>, <span class="string">"price"</span>: <span class="number">1</span>&#125;</span><br><span class="line">    ]) == [</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"wine"</span>, <span class="string">"price"</span>: <span class="number">138</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"bread"</span>, <span class="string">"price"</span>: <span class="number">100</span>&#125;</span><br><span class="line">    ], <span class="string">"First"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> bigger_price(<span class="number">1</span>, [</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"pen"</span>, <span class="string">"price"</span>: <span class="number">5</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"whiteboard"</span>, <span class="string">"price"</span>: <span class="number">170</span>&#125;</span><br><span class="line">    ]) == [&#123;<span class="string">"name"</span>: <span class="string">"whiteboard"</span>, <span class="string">"price"</span>: <span class="number">170</span>&#125;], <span class="string">"Second"</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'Done! Looks like it is fine. Go and check it'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Creative-Solution"><a href="#Creative-Solution" class="headerlink" title="Creative Solution:"></a>Creative Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bigger_price</span><span class="params">(limit: int, data: list)</span> -&gt; list:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> list(reversed(sorted(data, key=<span class="keyword">lambda</span> k: k[<span class="string">'price'</span>])))[<span class="number">0</span>:limit]</span><br></pre></td></tr></table></figure>
-
+        <h2 id="My-solution-for-CheckIO-“index-power”"><a href="#My-solution-for-CheckIO-“index-power”" class="headerlink" title="My solution for CheckIO “index-power”"></a>My solution for CheckIO “index-power”</h2><hr>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> You are given an array with positive numbers and a number N. You should find the N-th power of the element in the array with the index N. If N is outside of the array, then return -1. Don’t forget that the first element has the index 0.</p>
+<p>Let’s look at a few examples:</p>
+<ul>
+<li>array = [1, 2, 3, 4] and N = 2, then the result is 32 == 9;</li>
+<li>array = [1, 2, 3] and N = 3, but N is outside of the array, so the result is -1.</li>
+</ul>
+<p>Input: Two arguments. An array as a list of integers and a number as a integer.</p>
+<p>Output: The result as an integer</p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index_power</span><span class="params">(array: list, n: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">        Find Nth power of the element with index N.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">return</span> [x ** n <span class="keyword">for</span> x <span class="keyword">in</span> array][n]</span><br><span class="line">    <span class="keyword">except</span> IndexError:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line">    <span class="keyword">assert</span> index_power([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>], <span class="number">2</span>) == <span class="number">9</span>, <span class="string">"Square"</span></span><br><span class="line">    <span class="keyword">assert</span> index_power([<span class="number">1</span>, <span class="number">3</span>, <span class="number">10</span>, <span class="number">100</span>], <span class="number">3</span>) == <span class="number">1000000</span>, <span class="string">"Cube"</span></span><br><span class="line">    <span class="keyword">assert</span> index_power([<span class="number">0</span>, <span class="number">1</span>], <span class="number">0</span>) == <span class="number">1</span>, <span class="string">"Zero power"</span></span><br><span class="line">    <span class="keyword">assert</span> index_power([<span class="number">1</span>, <span class="number">2</span>], <span class="number">3</span>) == <span class="number">-1</span>, <span class="string">"IndexError"</span></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to review your tests and earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -363,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/07/Openwrt-add-a-new-device/" rel="next" title="Openwrt 添加一个新设备">
-                <i class="fa fa-chevron-left"></i> Openwrt 添加一个新设备
+              <a href="/2019/01/25/CheckIO-three-words/" rel="next" title="My solution for CheckIO three-words">
+                <i class="fa fa-chevron-left"></i> My solution for CheckIO three-words
               </a>
             
           </div>
@@ -372,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/25/CheckIO-Best-stock/" rel="prev" title="My solution for CheckIO Best stock">
-                My solution for CheckIO Best stock <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -498,7 +495,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#My-solution-for-CheckIO-“bigger-price”"><span class="nav-number">1.</span> <span class="nav-text">My solution for CheckIO “bigger-price”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creative-Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Creative Solution:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#My-solution-for-CheckIO-“index-power”"><span class="nav-number">1.</span> <span class="nav-text">My solution for CheckIO “index-power”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution:</span></a></li></ol></li></ol></div>
             
 
           </div>
