@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="简要说明 Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20;  移植好4G模块的内核驱动后，主要是对4G模块进行配置；  4G模块至少有两种配置协议，一种是ppp拨号方式，第二种是qmi方式；  如果路由器或者是modem只支持AT命令的方式那么就只能通过拨号方式上网了；  QMI方式会比ppp拨号方式要稳定，并且连接更快；    o">
+<meta name="description" content="My solution for CheckIO “three-words” Description: Let’s teach the Robots to distinguish words and numbers. You are given a string with words and numbers separated by whitespaces (one space). The word">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Openwrt 调试配置4G模组">
-<meta property="og:url" content="http://github.com/ian688t6/2019/01/03/Openwrt-debug-4G-module/index.html">
+<meta property="og:title" content="My solution for CheckIO three-words">
+<meta property="og:url" content="http://github.com/ian688t6/2019/01/25/CheckIO-three-words/index.html">
 <meta property="og:site_name" content="ian688t6&#39;s Blog">
-<meta property="og:description" content="简要说明 Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20;  移植好4G模块的内核驱动后，主要是对4G模块进行配置；  4G模块至少有两种配置协议，一种是ppp拨号方式，第二种是qmi方式；  如果路由器或者是modem只支持AT命令的方式那么就只能通过拨号方式上网了；  QMI方式会比ppp拨号方式要稳定，并且连接更快；    o">
+<meta property="og:description" content="My solution for CheckIO “three-words” Description: Let’s teach the Robots to distinguish words and numbers. You are given a string with words and numbers separated by whitespaces (one space). The word">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-03T08:39:56.245Z">
+<meta property="og:updated_time" content="2019-01-25T08:11:29.553Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Openwrt 调试配置4G模组">
-<meta name="twitter:description" content="简要说明 Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20;  移植好4G模块的内核驱动后，主要是对4G模块进行配置；  4G模块至少有两种配置协议，一种是ppp拨号方式，第二种是qmi方式；  如果路由器或者是modem只支持AT命令的方式那么就只能通过拨号方式上网了；  QMI方式会比ppp拨号方式要稳定，并且连接更快；    o">
+<meta name="twitter:title" content="My solution for CheckIO three-words">
+<meta name="twitter:description" content="My solution for CheckIO “three-words” Description: Let’s teach the Robots to distinguish words and numbers. You are given a string with words and numbers separated by whitespaces (one space). The word">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/ian688t6/2019/01/03/Openwrt-debug-4G-module/">
+  <link rel="canonical" href="http://github.com/ian688t6/2019/01/25/CheckIO-three-words/">
 
 
 
 
 
-  <title>Openwrt 调试配置4G模组 | ian688t6's Blog</title>
+  <title>My solution for CheckIO three-words | ian688t6's Blog</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/03/Openwrt-debug-4G-module/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/25/CheckIO-three-words/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="J. Ian">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Openwrt 调试配置4G模组</h1>
+          <h1 class="post-title" itemprop="name headline">My solution for CheckIO three-words</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T16:09:27+08:00">
-                2019-01-03
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T16:10:33+08:00">
+                2019-01-25
               </time>
             
 
@@ -294,8 +294,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/openwrt/" itemprop="url" rel="index">
-                    <span itemprop="name">openwrt</span>
+                  <a href="/categories/checkio/" itemprop="url" rel="index">
+                    <span itemprop="name">checkio</span>
                   </a>
                 </span>
 
@@ -331,38 +331,15 @@
       
 
       
-        <hr>
-<h4 id="简要说明"><a href="#简要说明" class="headerlink" title="简要说明"></a>简要说明</h4><ul>
-<li><p>Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20;</p>
-</li>
-<li><p>移植好4G模块的内核驱动后，主要是对4G模块进行配置；</p>
-</li>
-<li><p>4G模块至少有两种配置协议，一种是ppp拨号方式，第二种是qmi方式；</p>
-</li>
-<li><p>如果路由器或者是modem只支持AT命令的方式那么就只能通过拨号方式上网了；</p>
-</li>
-<li><p>QMI方式会比ppp拨号方式要稳定，并且连接更快；</p>
-</li>
-</ul>
+        <h2 id="My-solution-for-CheckIO-“three-words”"><a href="#My-solution-for-CheckIO-“three-words”" class="headerlink" title="My solution for CheckIO “three-words”"></a>My solution for CheckIO “three-words”</h2><hr>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> Let’s teach the Robots to distinguish words and numbers.</p>
+<p>You are given a string with words and numbers separated by whitespaces (one space). The words contains only letters. You should check if the string contains three words in succession. For example, the string “start 5 one two three 7 end” contains three words in succession.</p>
+<p>Input: A string with words.</p>
+<p>Output: The answer as a boolean.</p>
+<p>Precondition: The input contains words and/or numbers. There are no mixed words (letters and digits combined).<br>0 &lt; len(words) &lt; 100 </p>
 <hr>
-<h4 id="openwrt-路由器需要安装的包"><a href="#openwrt-路由器需要安装的包" class="headerlink" title="openwrt 路由器需要安装的包"></a>openwrt 路由器需要安装的包</h4><pre><code>usb-modeswitch - It will automatically issue a “special” command to the modem for switching it into the “Working” state
-kmod-mii - Mii driver
-kmod-usb-net - USB to Ethernet
-kmod-usb-wdm
-kmod-usb-net-qmi-wwan
-uqmi - Control utility
-</code></pre><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ opkg update</span><br><span class="line">$ opkg install usb-modeswitch kmod-mii kmod-usb-net kmod-usb-wdm kmod-usb-net-qmi-wwan uqmi</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="openwrt-可选择安装的包"><a href="#openwrt-可选择安装的包" class="headerlink" title="openwrt 可选择安装的包"></a>openwrt 可选择安装的包</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ opkg update</span><br><span class="line">$ opkg install kmod-usb-net-cdc-mbim umbim</span><br><span class="line">$ opkg update</span><br><span class="line">$ opkg install kmod-usb-serial-option kmod-usb-serial kmod-usb-serial-wwan</span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="network-配置"><a href="#network-配置" class="headerlink" title="network 配置"></a>network 配置</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ vi /etc/config/network</span><br><span class="line">config interface <span class="string">'wwan'</span></span><br><span class="line">        option ifname <span class="string">'wwan0'</span></span><br><span class="line">        option proto <span class="string">'dhcp'</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="iptables-配置源地址伪装，以及端口转发"><a href="#iptables-配置源地址伪装，以及端口转发" class="headerlink" title="iptables 配置源地址伪装，以及端口转发"></a>iptables 配置源地址伪装，以及端口转发</h4><ul>
-<li>可直接在openwrt的防火墙配置界面进行配置<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go to Network → Firewall, scroll down to wan and click the Edit button</span><br><span class="line">add a checkmark to the wwan box under Covered networks heading, click Save &amp; Apply</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkio</span><span class="params">(words: str)</span> -&gt; bool:</span></span><br><span class="line">    lists = words.split()</span><br><span class="line">    results = []</span><br><span class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> lists:</span><br><span class="line">        <span class="keyword">if</span> len(results) == <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> word.isalpha():</span><br><span class="line">            results.append(word)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            results.clear()</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span> <span class="keyword">if</span> len(results) == <span class="number">3</span> <span class="keyword">else</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">"Hello World hello"</span>) == <span class="keyword">True</span>, <span class="string">"Hello"</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">"He is 123 man"</span>) == <span class="keyword">False</span>, <span class="string">"123 man"</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">"1 2 3 4"</span>) == <span class="keyword">False</span>, <span class="string">"Digits"</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">"bla bla bla bla"</span>) == <span class="keyword">True</span>, <span class="string">"Bla Bla"</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">"Hi"</span>) == <span class="keyword">False</span>, <span class="string">"Hi"</span></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to review your tests and earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -386,8 +363,8 @@ uqmi - Control utility
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/03/Openwrt-port-4G-driver/" rel="next" title="Openwrt 移植EC20 4G模块">
-                <i class="fa fa-chevron-left"></i> Openwrt 移植EC20 4G模块
+              <a href="/2019/01/25/CheckIO-secret-message/" rel="next" title="My solution for CheckIO secret-mssage">
+                <i class="fa fa-chevron-left"></i> My solution for CheckIO secret-mssage
               </a>
             
           </div>
@@ -395,10 +372,6 @@ uqmi - Control utility
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/06/Pi-camera-config/" rel="prev" title="Pi 配置摄像头">
-                Pi 配置摄像头 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -521,7 +494,7 @@ uqmi - Control utility
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简要说明"><span class="nav-number">1.</span> <span class="nav-text">简要说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#openwrt-路由器需要安装的包"><span class="nav-number">2.</span> <span class="nav-text">openwrt 路由器需要安装的包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#openwrt-可选择安装的包"><span class="nav-number">3.</span> <span class="nav-text">openwrt 可选择安装的包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#network-配置"><span class="nav-number">4.</span> <span class="nav-text">network 配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#iptables-配置源地址伪装，以及端口转发"><span class="nav-number">5.</span> <span class="nav-text">iptables 配置源地址伪装，以及端口转发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结束"><span class="nav-number">6.</span> <span class="nav-text">结束</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#My-solution-for-CheckIO-“three-words”"><span class="nav-number">1.</span> <span class="nav-text">My solution for CheckIO “three-words”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution:</span></a></li></ol></li></ol></div>
             
 
           </div>
