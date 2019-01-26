@@ -239,6 +239,154 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/26/CheckIO-house-password/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J. Ian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ian688t6's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/26/CheckIO-house-password/" itemprop="url">My solution for CheckIO house-password</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-26T17:08:14+08:00">
+                2019-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/checkio/" itemprop="url" rel="index">
+                    <span itemprop="name">checkio</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="My-solution-for-CheckIO-“house-password”"><a href="#My-solution-for-CheckIO-“house-password”" class="headerlink" title="My solution for CheckIO “house-password”"></a>My solution for CheckIO “house-password”</h2><hr>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> Stephan and Sophia forget about security and use simple passwords for everything. Help Nikola develop a password security check module. The password will be considered strong enough if its length is greater than or equal to 10 symbols, it has at least one digit, as well as containing one uppercase letter and one lowercase letter in it. The password contains only ASCII latin letters or digits.</p>
+<p>Input: A password as a string.</p>
+<p>Output: Is the password safe or not as a boolean or any data type that can be converted and processed as a boolean. In the results you will see the converted results.</p>
+<p>checkio(‘A1213pokl’) == False<br>checkio(‘bAse730onE’) == True<br>checkio(‘asasasasasasasaas’) == False<br>checkio(‘QWERTYqwerty’) == False<br>checkio(‘123456123456’) == False<br>checkio(‘QwErTy911poqqqq’) == True</p>
+<p>Precondition:<br>re.match(“[a-zA-Z0-9]+”, password)<br>0 &lt; len(password) ≤ 64 </p>
+<hr>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkio</span><span class="params">(data: str)</span> -&gt; bool:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#replace this for solution</span></span><br><span class="line">    <span class="keyword">import</span> re</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">True</span> <span class="keyword">if</span> re.match(<span class="string">r'.*\d+'</span>, data) <span class="keyword">and</span> re.match(<span class="string">r'.*[a-z]'</span>, data) <span class="keyword">and</span> re.match(<span class="string">r'.*[A-Z]'</span>, data) <span class="keyword">and</span> len(data) &gt; <span class="number">9</span> <span class="keyword">else</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#Some hints</span></span><br><span class="line"><span class="comment">#Just check all conditions</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">'A1213pokl'</span>) == <span class="keyword">False</span>, <span class="string">"1st example"</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">'bAse730onE4'</span>) == <span class="keyword">True</span>, <span class="string">"2nd example"</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">'asasasasasasasaas'</span>) == <span class="keyword">False</span>, <span class="string">"3rd example"</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">'QWERTYqwerty'</span>) == <span class="keyword">False</span>, <span class="string">"4th example"</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">'123456123456'</span>) == <span class="keyword">False</span>, <span class="string">"5th example"</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="string">'QwErTy911poqqqq'</span>) == <span class="keyword">True</span>, <span class="string">"6th example"</span></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to review your tests and earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/26/CheckIO-right-to-left/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1568,132 +1716,6 @@ If the final marker comes before the initial marker, then return an empty string
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/23/CheckIO-digits-multiplication/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="J. Ian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ian688t6's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/23/CheckIO-digits-multiplication/" itemprop="url">My solution for CheckIO digits multiplication</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-23T15:23:51+08:00">
-                2019-01-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="My-solution-for-CheckIO-“digits-multiplication”"><a href="#My-solution-for-CheckIO-“digits-multiplication”" class="headerlink" title="My solution for CheckIO “digits-multiplication”"></a>My solution for CheckIO “digits-multiplication”</h2><hr>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> You are given a positive integer. Your function should calculate the product of the digits excluding any zeroes.</p>
-<p>For example: The number given is 123405. The result will be 1<em>2</em>3<em>4</em>5=120 (don’t forget to exclude zeroes).</p>
-<p>Input: A positive integer.</p>
-<p>Output: The product of the digits as an integer.</p>
-<p>Precondition: 0 &lt; number &lt; 106 </p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkio</span><span class="params">(number: int)</span> -&gt; int:</span></span><br><span class="line">    res = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> number &gt; <span class="number">0</span>:</span><br><span class="line">        div = number % <span class="number">10</span></span><br><span class="line">        <span class="keyword">if</span> div &gt; <span class="number">0</span>:</span><br><span class="line">            res *= div</span><br><span class="line">        number = int(number / <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">123405</span>) == <span class="number">120</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">999</span>) == <span class="number">729</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">1000</span>) == <span class="number">1</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">1111</span>) == <span class="number">1</span></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to review your tests and earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Creative-Solution"><a href="#Creative-Solution" class="headerlink" title="Creative Solution:"></a>Creative Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkio</span><span class="params">(number: int)</span> -&gt; int:</span></span><br><span class="line"></span><br><span class="line">    r = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> str(number):</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> num != <span class="string">'0'</span>:</span><br><span class="line"></span><br><span class="line">            r = r * int(num)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">123405</span>) == <span class="number">120</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">999</span>) == <span class="number">729</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">1000</span>) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">1111</span>) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to review your tests and earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1744,7 +1766,7 @@ If the final marker comes before the initial marker, then return an empty string
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
