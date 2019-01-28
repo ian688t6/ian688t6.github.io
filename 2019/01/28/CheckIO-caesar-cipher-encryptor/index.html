@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="My solution for CheckIO “digits-multiplication” Description: You are given a positive integer. Your function should calculate the product of the digits excluding any zeroes. For example: The number gi">
+<meta name="description" content="My solution for CheckIO “caesar-cipher-encryptor” Description: This mission is the part of the set. Another one - Caesar cipher decriptor. Your mission is to encrypt a secret message (text only, witho">
 <meta property="og:type" content="article">
-<meta property="og:title" content="My solution for CheckIO digits multiplication">
-<meta property="og:url" content="http://github.com/ian688t6/2019/01/23/CheckIO-digits-multiplication/index.html">
+<meta property="og:title" content="My solution for CheckIO caesar-cipher-encryptor">
+<meta property="og:url" content="http://github.com/ian688t6/2019/01/28/CheckIO-caesar-cipher-encryptor/index.html">
 <meta property="og:site_name" content="ian688t6&#39;s Blog">
-<meta property="og:description" content="My solution for CheckIO “digits-multiplication” Description: You are given a positive integer. Your function should calculate the product of the digits excluding any zeroes. For example: The number gi">
+<meta property="og:description" content="My solution for CheckIO “caesar-cipher-encryptor” Description: This mission is the part of the set. Another one - Caesar cipher decriptor. Your mission is to encrypt a secret message (text only, witho">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-26T02:27:30.766Z">
+<meta property="og:updated_time" content="2019-01-28T06:09:06.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My solution for CheckIO digits multiplication">
-<meta name="twitter:description" content="My solution for CheckIO “digits-multiplication” Description: You are given a positive integer. Your function should calculate the product of the digits excluding any zeroes. For example: The number gi">
+<meta name="twitter:title" content="My solution for CheckIO caesar-cipher-encryptor">
+<meta name="twitter:description" content="My solution for CheckIO “caesar-cipher-encryptor” Description: This mission is the part of the set. Another one - Caesar cipher decriptor. Your mission is to encrypt a secret message (text only, witho">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/ian688t6/2019/01/23/CheckIO-digits-multiplication/">
+  <link rel="canonical" href="http://github.com/ian688t6/2019/01/28/CheckIO-caesar-cipher-encryptor/">
 
 
 
 
 
-  <title>My solution for CheckIO digits multiplication | ian688t6's Blog</title>
+  <title>My solution for CheckIO caesar-cipher-encryptor | ian688t6's Blog</title>
   
 
 
@@ -242,7 +242,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/23/CheckIO-digits-multiplication/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/28/CheckIO-caesar-cipher-encryptor/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="J. Ian">
@@ -259,7 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">My solution for CheckIO digits multiplication</h1>
+          <h1 class="post-title" itemprop="name headline">My solution for CheckIO caesar-cipher-encryptor</h1>
         
 
         <div class="post-meta">
@@ -271,8 +271,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-23T15:23:51+08:00">
-                2019-01-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T14:08:19+08:00">
+                2019-01-28
               </time>
             
 
@@ -281,6 +281,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/checkio/" itemprop="url" rel="index">
+                    <span itemprop="name">checkio</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -309,14 +331,16 @@
       
 
       
-        <h2 id="My-solution-for-CheckIO-“digits-multiplication”"><a href="#My-solution-for-CheckIO-“digits-multiplication”" class="headerlink" title="My solution for CheckIO “digits-multiplication”"></a>My solution for CheckIO “digits-multiplication”</h2><hr>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> You are given a positive integer. Your function should calculate the product of the digits excluding any zeroes.</p>
-<p>For example: The number given is 123405. The result will be 1<em>2</em>3<em>4</em>5=120 (don’t forget to exclude zeroes).</p>
-<p>Input: A positive integer.</p>
-<p>Output: The product of the digits as an integer.</p>
-<p>Precondition: 0 &lt; number &lt; 106 </p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkio</span><span class="params">(number: int)</span> -&gt; int:</span></span><br><span class="line">    res = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> number &gt; <span class="number">0</span>:</span><br><span class="line">        div = number % <span class="number">10</span></span><br><span class="line">        <span class="keyword">if</span> div &gt; <span class="number">0</span>:</span><br><span class="line">            res *= div</span><br><span class="line">        number = int(number / <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">123405</span>) == <span class="number">120</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">999</span>) == <span class="number">729</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">1000</span>) == <span class="number">1</span></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">1111</span>) == <span class="number">1</span></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to review your tests and earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="Creative-Solution"><a href="#Creative-Solution" class="headerlink" title="Creative Solution:"></a>Creative Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkio</span><span class="params">(number: int)</span> -&gt; int:</span></span><br><span class="line"></span><br><span class="line">    r = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> num <span class="keyword">in</span> str(number):</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> num != <span class="string">'0'</span>:</span><br><span class="line"></span><br><span class="line">            r = r * int(num)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">123405</span>) == <span class="number">120</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">999</span>) == <span class="number">729</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">1000</span>) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> checkio(<span class="number">1111</span>) == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to review your tests and earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
+        <h2 id="My-solution-for-CheckIO-“caesar-cipher-encryptor”"><a href="#My-solution-for-CheckIO-“caesar-cipher-encryptor”" class="headerlink" title="My solution for CheckIO “caesar-cipher-encryptor”"></a>My solution for CheckIO “caesar-cipher-encryptor”</h2><hr>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> This mission is the part of the set. Another one - Caesar cipher decriptor.</p>
+<p>Your mission is to encrypt a secret message (text only, without special chars like “!”, “&amp;”, “?” etc.) using Caesar cipher where each letter of input text is replaced by another that stands at a fixed distance. For example (“a b c”, 3) == “d e f”</p>
+<p>example</p>
+<p>Input: A secret message as a string (lowercase letters only and white spaces)</p>
+<p>Output: The same string, but encrypted</p>
+<p>Precondition:<br>0 &lt; len(text) &lt; 50<br>-26 &lt; delta &lt; 26 </p>
+<hr>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_encrypt</span><span class="params">(text, delta)</span>:</span></span><br><span class="line">    <span class="comment">#replace this for solution</span></span><br><span class="line">    chs = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">    new_texts = []</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> text:</span><br><span class="line">        <span class="keyword">if</span> ch.isalpha():</span><br><span class="line">            new_texts.append(chs[(chs.index(ch) + delta) % len(chs)])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            new_texts.append(ch) </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(new_texts)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(<span class="string">"Example:"</span>)</span><br><span class="line">    print(to_encrypt(<span class="string">'abc'</span>, <span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"a b c"</span>, <span class="number">3</span>) == <span class="string">"d e f"</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"a b c"</span>, <span class="number">-3</span>) == <span class="string">"x y z"</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"simple text"</span>, <span class="number">16</span>) == <span class="string">"iycfbu junj"</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"important text"</span>, <span class="number">10</span>) == <span class="string">"swzybdkxd dohd"</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"state secret"</span>, <span class="number">-13</span>) == <span class="string">"fgngr frperg"</span></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Creative-Solution"><a href="#Creative-Solution" class="headerlink" title="Creative Solution:"></a>Creative Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_encrypt</span><span class="params">(text, delta)</span>:</span></span><br><span class="line"></span><br><span class="line">    xxx= <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    abc = string.ascii_lowercase</span><br><span class="line"></span><br><span class="line">    delta = delta % len(abc)</span><br><span class="line"></span><br><span class="line">    d_abc = abc[delta:] + abc[:delta]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> text:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> abc: xxx += i</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>: xxx += d_abc[abc.index(i)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> xxx</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -340,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/07/Openwrt-add-a-new-device/" rel="next" title="Openwrt 添加一个新设备">
-                <i class="fa fa-chevron-left"></i> Openwrt 添加一个新设备
+              <a href="/2019/01/28/CheckIO-long-repeat/" rel="next" title="My solution for CheckIO long-repeat">
+                <i class="fa fa-chevron-left"></i> My solution for CheckIO long-repeat
               </a>
             
           </div>
@@ -349,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/24/CheckIO-Bigger-price/" rel="prev" title="CheckIO Bigger-price">
-                CheckIO Bigger-price <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -475,7 +495,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#My-solution-for-CheckIO-“digits-multiplication”"><span class="nav-number">1.</span> <span class="nav-text">My solution for CheckIO “digits-multiplication”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creative-Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Creative Solution:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#My-solution-for-CheckIO-“caesar-cipher-encryptor”"><span class="nav-number">1.</span> <span class="nav-text">My solution for CheckIO “caesar-cipher-encryptor”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Solution"><span class="nav-number">1.2.</span> <span class="nav-text">Solution:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Creative-Solution"><span class="nav-number">1.3.</span> <span class="nav-text">Creative Solution:</span></a></li></ol></li></ol></div>
             
 
           </div>

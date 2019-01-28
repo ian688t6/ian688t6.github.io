@@ -239,6 +239,156 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/28/CheckIO-caesar-cipher-encryptor/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J. Ian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ian688t6's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/28/CheckIO-caesar-cipher-encryptor/" itemprop="url">My solution for CheckIO caesar-cipher-encryptor</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-28T14:08:19+08:00">
+                2019-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/checkio/" itemprop="url" rel="index">
+                    <span itemprop="name">checkio</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="My-solution-for-CheckIO-“caesar-cipher-encryptor”"><a href="#My-solution-for-CheckIO-“caesar-cipher-encryptor”" class="headerlink" title="My solution for CheckIO “caesar-cipher-encryptor”"></a>My solution for CheckIO “caesar-cipher-encryptor”</h2><hr>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> This mission is the part of the set. Another one - Caesar cipher decriptor.</p>
+<p>Your mission is to encrypt a secret message (text only, without special chars like “!”, “&amp;”, “?” etc.) using Caesar cipher where each letter of input text is replaced by another that stands at a fixed distance. For example (“a b c”, 3) == “d e f”</p>
+<p>example</p>
+<p>Input: A secret message as a string (lowercase letters only and white spaces)</p>
+<p>Output: The same string, but encrypted</p>
+<p>Precondition:<br>0 &lt; len(text) &lt; 50<br>-26 &lt; delta &lt; 26 </p>
+<hr>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_encrypt</span><span class="params">(text, delta)</span>:</span></span><br><span class="line">    <span class="comment">#replace this for solution</span></span><br><span class="line">    chs = <span class="string">'abcdefghijklmnopqrstuvwxyz'</span></span><br><span class="line">    new_texts = []</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> text:</span><br><span class="line">        <span class="keyword">if</span> ch.isalpha():</span><br><span class="line">            new_texts.append(chs[(chs.index(ch) + delta) % len(chs)])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            new_texts.append(ch) </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(new_texts)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(<span class="string">"Example:"</span>)</span><br><span class="line">    print(to_encrypt(<span class="string">'abc'</span>, <span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">#These "asserts" using only for self-checking and not necessary for auto-testing</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"a b c"</span>, <span class="number">3</span>) == <span class="string">"d e f"</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"a b c"</span>, <span class="number">-3</span>) == <span class="string">"x y z"</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"simple text"</span>, <span class="number">16</span>) == <span class="string">"iycfbu junj"</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"important text"</span>, <span class="number">10</span>) == <span class="string">"swzybdkxd dohd"</span></span><br><span class="line">    <span class="keyword">assert</span> to_encrypt(<span class="string">"state secret"</span>, <span class="number">-13</span>) == <span class="string">"fgngr frperg"</span></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Creative-Solution"><a href="#Creative-Solution" class="headerlink" title="Creative Solution:"></a>Creative Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_encrypt</span><span class="params">(text, delta)</span>:</span></span><br><span class="line"></span><br><span class="line">    xxx= <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    abc = string.ascii_lowercase</span><br><span class="line"></span><br><span class="line">    delta = delta % len(abc)</span><br><span class="line"></span><br><span class="line">    d_abc = abc[delta:] + abc[:delta]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> text:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> abc: xxx += i</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>: xxx += d_abc[abc.index(i)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> xxx</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/28/CheckIO-long-repeat/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1570,152 +1720,6 @@ If the final marker comes before the initial marker, then return an empty string
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/25/CheckIO-Best-stock/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="J. Ian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ian688t6's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/25/CheckIO-Best-stock/" itemprop="url">My solution for CheckIO Best stock</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T07:39:32+08:00">
-                2019-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/checkio/" itemprop="url" rel="index">
-                    <span itemprop="name">checkio</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="My-solution-for-CheckIO-“best-stock”"><a href="#My-solution-for-CheckIO-“best-stock”" class="headerlink" title="My solution for CheckIO “best-stock”"></a>My solution for CheckIO “best-stock”</h2><hr>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> You are given the current stock prices. You have to find out which stocks cost more.</p>
-<p>Input: The dictionary where the market identifier code is a key and the value is a stock price.</p>
-<p>Output: A string and the market identifier code.</p>
-<p>Preconditions: All the prices are unique. </p>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">best_stock</span><span class="params">(data)</span>:</span></span><br><span class="line">    <span class="comment"># your code here</span></span><br><span class="line">    <span class="keyword">return</span> max(data, key=data.get)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    print(<span class="string">"Example:"</span>)</span><br><span class="line">    print(best_stock(&#123;</span><br><span class="line">        <span class="string">'CAC'</span>: <span class="number">10.0</span>,</span><br><span class="line">        <span class="string">'ATX'</span>: <span class="number">390.2</span>,</span><br><span class="line">        <span class="string">'WIG'</span>: <span class="number">1.2</span></span><br><span class="line">    &#125;))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># These "asserts" are used for self-checking and not for an auto-testing</span></span><br><span class="line">    <span class="keyword">assert</span> best_stock(&#123;</span><br><span class="line">        <span class="string">'CAC'</span>: <span class="number">10.0</span>,</span><br><span class="line">        <span class="string">'ATX'</span>: <span class="number">390.2</span>,</span><br><span class="line">        <span class="string">'WIG'</span>: <span class="number">1.2</span></span><br><span class="line">    &#125;) == <span class="string">'ATX'</span>, <span class="string">"First"</span></span><br><span class="line">    <span class="keyword">assert</span> best_stock(&#123;</span><br><span class="line">        <span class="string">'CAC'</span>: <span class="number">91.1</span>,</span><br><span class="line">        <span class="string">'ATX'</span>: <span class="number">1.01</span>,</span><br><span class="line">        <span class="string">'TASI'</span>: <span class="number">120.9</span></span><br><span class="line">    &#125;) == <span class="string">'TASI'</span>, <span class="string">"Second"</span></span><br><span class="line">    print(<span class="string">"Coding complete? Click 'Check' to earn cool rewards!"</span>)</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1766,7 +1770,7 @@ If the final marker comes before the initial marker, then return an empty string
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
