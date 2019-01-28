@@ -239,6 +239,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/24/CheckIO-Bigger-price/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J. Ian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ian688t6's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/24/CheckIO-Bigger-price/" itemprop="url">CheckIO Bigger-price</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-24T16:58:42+08:00">
+                2019-01-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/checkio/" itemprop="url" rel="index">
+                    <span itemprop="name">checkio</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="My-solution-for-CheckIO-“bigger-price”"><a href="#My-solution-for-CheckIO-“bigger-price”" class="headerlink" title="My solution for CheckIO “bigger-price”"></a>My solution for CheckIO “bigger-price”</h2><hr>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> You have a table with all available goods in the store. The data is represented as a list of dicts</p>
+<p>Your mission here is to find the TOP most expensive goods. The amount we are looking for will be given as a first argument and the whole data as the second one</p>
+<p>Input: int and list of dicts. Each dicts has two keys “name” and “price”</p>
+<p>Output: the same as the second Input argument..</p>
+<hr>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bigger_price</span><span class="params">(limit: int, data: list)</span> -&gt; list:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">        TOP most expensive goods</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># your code here</span></span><br><span class="line">    foods = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(limit):</span><br><span class="line">        food = data.pop(data.index(max(data, key=<span class="keyword">lambda</span> k: k[<span class="string">'price'</span>])))</span><br><span class="line">        foods.append(food)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> foods</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">from</span> pprint <span class="keyword">import</span> pprint</span><br><span class="line">    print(<span class="string">'Example:'</span>)</span><br><span class="line">    pprint(bigger_price(<span class="number">2</span>, [</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"bread"</span>, <span class="string">"price"</span>: <span class="number">100</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"wine"</span>, <span class="string">"price"</span>: <span class="number">138</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"meat"</span>, <span class="string">"price"</span>: <span class="number">15</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"water"</span>, <span class="string">"price"</span>: <span class="number">1</span>&#125;</span><br><span class="line">    ]))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># These "asserts" using for self-checking and not for auto-testing</span></span><br><span class="line">    <span class="keyword">assert</span> bigger_price(<span class="number">2</span>, [</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"bread"</span>, <span class="string">"price"</span>: <span class="number">100</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"wine"</span>, <span class="string">"price"</span>: <span class="number">138</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"meat"</span>, <span class="string">"price"</span>: <span class="number">15</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"water"</span>, <span class="string">"price"</span>: <span class="number">1</span>&#125;</span><br><span class="line">    ]) == [</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"wine"</span>, <span class="string">"price"</span>: <span class="number">138</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"bread"</span>, <span class="string">"price"</span>: <span class="number">100</span>&#125;</span><br><span class="line">    ], <span class="string">"First"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> bigger_price(<span class="number">1</span>, [</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"pen"</span>, <span class="string">"price"</span>: <span class="number">5</span>&#125;,</span><br><span class="line">        &#123;<span class="string">"name"</span>: <span class="string">"whiteboard"</span>, <span class="string">"price"</span>: <span class="number">170</span>&#125;</span><br><span class="line">    ]) == [&#123;<span class="string">"name"</span>: <span class="string">"whiteboard"</span>, <span class="string">"price"</span>: <span class="number">170</span>&#125;], <span class="string">"Second"</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'Done! Looks like it is fine. Go and check it'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="Creative-Solution"><a href="#Creative-Solution" class="headerlink" title="Creative Solution:"></a>Creative Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bigger_price</span><span class="params">(limit: int, data: list)</span> -&gt; list:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> list(reversed(sorted(data, key=<span class="keyword">lambda</span> k: k[<span class="string">'price'</span>])))[<span class="number">0</span>:limit]</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/23/CheckIO-digits-multiplication/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1600,161 +1749,11 @@ uqmi - Control utility
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/02/Openwrt-develop-enviroment/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="J. Ian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ian688t6's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/02/Openwrt-develop-enviroment/" itemprop="url">Openwrt 开发环境搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-02T17:09:42+08:00">
-                2019-01-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/openwrt/" itemprop="url" rel="index">
-                    <span itemprop="name">openwrt</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Host-为-ubuntu-16-04，需要预安装的包"><a href="#Host-为-ubuntu-16-04，需要预安装的包" class="headerlink" title="Host 为 ubuntu-16.04，需要预安装的包:"></a>Host 为 ubuntu-16.04，需要预安装的包:</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install subversion g++ zlib1g-dev build-essential git python rsync man-db</span><br><span class="line">$ sudo apt-get install libncurses5-dev gawk gettext unzip file libssl-dev wget zip time</span><br></pre></td></tr></table></figure>
-<h4 id="获取-openwrt-源码："><a href="#获取-openwrt-源码：" class="headerlink" title="获取 openwrt 源码："></a>获取 openwrt 源码：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://git.openwrt.org/openwrt/openwrt.git/</span><br><span class="line">$ <span class="built_in">cd</span> openwrt</span><br><span class="line">$ ./scripts/feeds update -a</span><br><span class="line">$ ./scripts/feeds install -a</span><br><span class="line">$ make menuconfig</span><br></pre></td></tr></table></figure>
-<h4 id="固件编译："><a href="#固件编译：" class="headerlink" title="固件编译："></a>固件编译：</h4><ul>
-<li>“Target System” ⇒ “Atheros AR7xxx/AR9xxx”</li>
-<li>“Target Profile” ⇒ “TP-LINK TL-WR841N/ND v11”</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure>
-<p>or<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make V=s</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1800,7 +1799,7 @@ uqmi - Control utility
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
