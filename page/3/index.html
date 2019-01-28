@@ -239,6 +239,175 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/03/Openwrt-create-project/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J. Ian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ian688t6's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/03/Openwrt-create-project/" itemprop="url">Openwrt 创建本地工程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T10:47:40+08:00">
+                2019-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/openwrt/" itemprop="url" rel="index">
+                    <span itemprop="name">openwrt</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h4 id="工程目录结构"><a href="#工程目录结构" class="headerlink" title="工程目录结构"></a>工程目录结构</h4><ul>
+<li><p>下面的工程结构主要是为了能将本地修改添加和官方源码分开，一是为了目录结构清晰，二是好对比修改；</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ config.mk  config-mt7620a  config-mt7621  dl  Makefile  openwrt-patch  openwrt-src.tar.gz  README.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>config.mk openwrt环境变量配置；</p>
+</li>
+<li><p>config-mt7620a openwrt 的配置；</p>
+</li>
+<li><p>dl 预先下载的开源包，openwrt编译耗时很长，在编译的同时也会根据依赖关系在编译过程中下载开源软件，所以预先下载需要的依赖包；</p>
+</li>
+<li><p>Makefile 工程的第一层makefile, 功能是backport openwrt的源码；</p>
+</li>
+<li><p>openwrt-patch 本地对openwrt官方代码的修改或添加patch;</p>
+</li>
+<li><p>openwrt-src.tar.gz openwrt的官方代码；</p>
+</li>
+</ul>
+<hr>
+<h4 id="工程的Makefile模板"><a href="#工程的Makefile模板" class="headerlink" title="工程的Makefile模板"></a>工程的Makefile模板</h4><ul>
+<li><p>config.mk 功能设置用到的一些环境变量</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TOP := $(shell <span class="built_in">pwd</span>)</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOURCE		:= openwrt-src</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOURCE_PATCH	:= openwrt-patch</span><br><span class="line"><span class="built_in">export</span> OPENWRT_SOC			:= mt7620a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Makefile 功能依次是解压源码，打补丁，编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">include config.mk</span><br><span class="line"></span><br><span class="line">.PHONY:all cleanall prep build clean</span><br><span class="line">all:</span><br><span class="line">	@<span class="built_in">echo</span> <span class="string">"rfbrt all"</span></span><br><span class="line">	<span class="built_in">pushd</span> $(OPENWRT_SOURCE);make -j8;<span class="built_in">popd</span></span><br><span class="line"></span><br><span class="line">cleanall:</span><br><span class="line">	@<span class="built_in">echo</span> <span class="string">"rfbrt clean all"</span></span><br><span class="line">	@rm -rf $(OPENWRT_SOURCE)</span><br><span class="line"></span><br><span class="line">prep:</span><br><span class="line">	@tar xvpf $(OPENWRT_SOURCE).tar.gz </span><br><span class="line">	@cp -R dl $(OPENWRT_SOURCE)</span><br><span class="line">	@cp -rf $(OPENWRT_SOURCE_PATCH)/* $(OPENWRT_SOURCE)</span><br><span class="line">ifeq ($(OPENWRT_SOC),mt7620)</span><br><span class="line">	@cp config-mt7620a $(OPENWRT_SOURCE)/.config</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">ifeq ($(OPENWRT_SOC),mt7621)</span><br><span class="line">	@cp config-mt7621 $(OPENWRT_SOURCE)/.config</span><br><span class="line">endif</span><br><span class="line"></span><br><span class="line">clean:</span><br><span class="line">	<span class="built_in">pushd</span> $(OPENWRT_SOURCE);make clean;<span class="built_in">popd</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/02/hello-world/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -554,7 +723,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
