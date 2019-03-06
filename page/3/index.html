@@ -239,6 +239,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/03/Openwrt-port-4G-driver/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J. Ian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ian688t6's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/03/Openwrt-port-4G-driver/" itemprop="url">Openwrt 移植EC20 4G模块</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-03T13:47:17+08:00">
+                2019-01-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/openwrt/" itemprop="url" rel="index">
+                    <span itemprop="name">openwrt</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <hr>
+<h4 id="简要说明"><a href="#简要说明" class="headerlink" title="简要说明"></a>简要说明</h4><ul>
+<li>Openwrt 版本是18.06, 内核版本为linux-4.14.90, 4G模块为Quectel EC20</li>
+</ul>
+<hr>
+<h4 id="主要参考"><a href="#主要参考" class="headerlink" title="主要参考"></a>主要参考</h4><ul>
+<li>参考Quectel官方文档，《Quectel_UC20_Embedded_Linux_USB_Driver_User_Guide_V1.0.pdf》，《Quectel_WCDMA&amp;LTE_Linux_USB_Driver_User_Guide_V1.7.pdf》，文档均可在Quectel官网下载；</li>
+</ul>
+<hr>
+<h4 id="内核驱动移植"><a href="#内核驱动移植" class="headerlink" title="内核驱动移植"></a>内核驱动移植</h4><ul>
+<li><p>Backport: drivers/net/usb/qmi_wwan.c</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">--- a/drivers/net/usb/qmi_wwan.c	<span class="number">2018</span><span class="number">-12</span><span class="number">-21</span> <span class="number">21</span>:<span class="number">13</span>:<span class="number">19.000000000</span> +<span class="number">0800</span></span><br><span class="line">+++ b/drivers/net/usb/qmi_wwan.c	<span class="number">2018</span><span class="number">-12</span><span class="number">-26</span> <span class="number">17</span>:<span class="number">14</span>:<span class="number">55.372927727</span> +<span class="number">0800</span></span><br><span class="line">@@ <span class="number">-524</span>,<span class="number">6</span> +<span class="number">524</span>,<span class="number">23</span> @@</span><br><span class="line"> 	<span class="keyword">return</span> (data[<span class="number">0</span>] &amp; <span class="number">0xd0</span>) == <span class="number">0x40</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line">+<span class="function">struct sk_buff *<span class="title">qmi_wwan_tx_fixup</span><span class="params">(struct usbnet *dev, struct sk_buff *skb, <span class="keyword">gfp_t</span> flags)</span></span></span><br><span class="line">+&#123;</span><br><span class="line">+	<span class="keyword">if</span> (cpu_to_le16(<span class="number">0x2C7C</span>) != dev-&gt;udev-&gt;descriptor.idVendor) &#123;</span><br><span class="line">+		<span class="keyword">return</span> skb;</span><br><span class="line">+	&#125;</span><br><span class="line">+</span><br><span class="line">+	<span class="keyword">if</span> (skb_pull(skb, ETH_HLEN)) &#123;</span><br><span class="line">+		<span class="keyword">return</span> skb;</span><br><span class="line">+	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">+		dev_err(&amp;dev-&gt;intf-&gt;dev, <span class="string">"Packet Droped"</span>);</span><br><span class="line">+	&#125;</span><br><span class="line">+	dev_kfree_skb_any(skb);</span><br><span class="line">+</span><br><span class="line">+	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">+&#125;</span><br><span class="line">+</span><br><span class="line">+</span><br><span class="line"> <span class="comment">/* disallow addresses which may be confused with IP headers */</span></span><br><span class="line"> <span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">qmi_wwan_mac_addr</span><span class="params">(struct net_device *dev, <span class="keyword">void</span> *p)</span></span></span><br><span class="line"><span class="function"> </span>&#123;</span><br><span class="line">@@ <span class="number">-1285</span>,<span class="number">7</span> +<span class="number">1302</span>,<span class="number">7</span> @@</span><br><span class="line"> 	&#123;QMI_GOBI_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9225</span>)&#125;,	<span class="comment">/* Sony Gobi 2000 Modem device (N0279, VU730) */</span></span><br><span class="line"> 	&#123;QMI_GOBI_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9245</span>)&#125;,	<span class="comment">/* Samsung Gobi 2000 Modem device (VL176) */</span></span><br><span class="line"> 	&#123;QMI_GOBI_DEVICE(<span class="number">0x03f0</span>, <span class="number">0x251d</span>)&#125;,	<span class="comment">/* HP Gobi 2000 Modem device (VP412) */</span></span><br><span class="line">-	&#123;QMI_GOBI_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9215</span>)&#125;,	<span class="comment">/* Acer Gobi 2000 Modem device (VP413) */</span></span><br><span class="line">+	<span class="comment">/* &#123;QMI_GOBI_DEVICE(0x05c6, 0x9215)&#125;,	 Acer Gobi 2000 Modem device (VP413) */</span></span><br><span class="line"> 	&#123;QMI_FIXED_INTF(<span class="number">0x05c6</span>, <span class="number">0x9215</span>, <span class="number">4</span>)&#125;,	<span class="comment">/* Quectel EC20 Mini PCIe */</span></span><br><span class="line"> 	&#123;QMI_GOBI_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9265</span>)&#125;,	<span class="comment">/* Asus Gobi 2000 Modem device (VR305) */</span></span><br><span class="line"> 	&#123;QMI_GOBI_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9235</span>)&#125;,	<span class="comment">/* Top Global Gobi 2000 Modem device (VR306) */</span></span><br><span class="line">@@ <span class="number">-1314</span>,<span class="number">6</span> +<span class="number">1331</span>,<span class="number">25</span> @@</span><br><span class="line"> 	&#123;QMI_GOBI_DEVICE(<span class="number">0x12d1</span>, <span class="number">0x14f1</span>)&#125;,	<span class="comment">/* Sony Gobi 3000 Composite */</span></span><br><span class="line"> 	&#123;QMI_GOBI_DEVICE(<span class="number">0x1410</span>, <span class="number">0xa021</span>)&#125;,	<span class="comment">/* Foxconn Gobi 3000 Modem device (Novatel E396) */</span></span><br><span class="line"> </span><br><span class="line">+<span class="meta">#<span class="meta-keyword">ifndef</span> QMI_FIXED_INTF</span></span><br><span class="line">+<span class="meta">#<span class="meta-keyword">define</span> QMI_FIXED_INTF(vend,prod,num) \</span></span><br><span class="line">+	.match_flags 			= USB_DEVICE_ID_MATCH_DEVICE | USB_DEVICE_ID_MATCH_INT_INFO, \</span><br><span class="line">+	.idVendor			 	= vend, \</span><br><span class="line">+	.idProduct				= prod, \</span><br><span class="line">+	.bInterfaceClass		= <span class="number">0xff</span>, \</span><br><span class="line">+	.bInterfaceSubClass		= <span class="number">0xff</span>, \</span><br><span class="line">+	.bInterfaceProtocol		= <span class="number">0xff</span>, \</span><br><span class="line">+	.driver_info			= (<span class="keyword">unsigned</span> <span class="keyword">long</span>)&amp;qmi_wwan_force_int##num,</span><br><span class="line">+#endif</span><br><span class="line">+	&#123; QMI_FIXED_INTF(<span class="number">0x05C6</span>, <span class="number">0x9003</span>, <span class="number">4</span>) &#125;,	<span class="comment">/* Quectel UC20 */</span></span><br><span class="line">+	&#123; QMI_FIXED_INTF(<span class="number">0x2C7C</span>, <span class="number">0x0125</span>, <span class="number">4</span>) &#125;,	<span class="comment">/* Quectel EC25/EC20 R2.0 */</span></span><br><span class="line">+	&#123; QMI_FIXED_INTF(<span class="number">0x2C7C</span>, <span class="number">0x0121</span>, <span class="number">4</span>) &#125;,	<span class="comment">/* Quectel EC21 */</span></span><br><span class="line">+	&#123; QMI_FIXED_INTF(<span class="number">0x05C6</span>, <span class="number">0x9215</span>, <span class="number">4</span>) &#125;,	<span class="comment">/* Quectel EC20 */</span></span><br><span class="line">+	&#123; QMI_FIXED_INTF(<span class="number">0x2C7C</span>, <span class="number">0x0191</span>, <span class="number">4</span>) &#125;,	<span class="comment">/* Quectel EG91 */</span></span><br><span class="line">+	&#123; QMI_FIXED_INTF(<span class="number">0x2C7C</span>, <span class="number">0x0195</span>, <span class="number">4</span>) &#125;,	<span class="comment">/* Quectel EG95 */</span></span><br><span class="line">+	&#123; QMI_FIXED_INTF(<span class="number">0x2C7C</span>, <span class="number">0x0306</span>, <span class="number">4</span>) &#125;,	<span class="comment">/* Quectel EG06/EP06/EM06 */</span></span><br><span class="line">+	&#123; QMI_FIXED_INTF(<span class="number">0x2C7C</span>, <span class="number">0x0296</span>, <span class="number">4</span>) &#125;,	<span class="comment">/* Quectel BG96 */</span></span><br><span class="line">+</span><br><span class="line"> 	&#123; &#125;					<span class="comment">/* END */</span></span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Backport: drivers/usb/serial/qcserial.c</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">--- a/drivers/usb/serial/qcserial.c	<span class="number">2018</span><span class="number">-12</span><span class="number">-21</span> <span class="number">21</span>:<span class="number">13</span>:<span class="number">19.000000000</span> +<span class="number">0800</span></span><br><span class="line">+++ b/drivers/usb/serial/qcserial.c	<span class="number">2018</span><span class="number">-12</span><span class="number">-26</span> <span class="number">17</span>:<span class="number">14</span>:<span class="number">55.372927727</span> +<span class="number">0800</span></span><br><span class="line">@@ <span class="number">-92</span>,<span class="number">7</span> +<span class="number">92</span>,<span class="number">7</span> @@</span><br><span class="line"> 	&#123;USB_DEVICE(<span class="number">0x03f0</span>, <span class="number">0x241d</span>)&#125;,	<span class="comment">/* HP Gobi 2000 QDL device (VP412) */</span></span><br><span class="line"> 	&#123;USB_DEVICE(<span class="number">0x03f0</span>, <span class="number">0x251d</span>)&#125;,	<span class="comment">/* HP Gobi 2000 Modem device (VP412) */</span></span><br><span class="line"> 	&#123;USB_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9214</span>)&#125;,	<span class="comment">/* Acer Gobi 2000 QDL device (VP413) */</span></span><br><span class="line">-	&#123;USB_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9215</span>)&#125;,	<span class="comment">/* Acer Gobi 2000 Modem device (VP413) */</span></span><br><span class="line">+	<span class="comment">/* &#123;USB_DEVICE(0x05c6, 0x9215)&#125;,	// Acer Gobi 2000 Modem device (VP413) */</span></span><br><span class="line"> 	&#123;USB_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9264</span>)&#125;,	<span class="comment">/* Asus Gobi 2000 QDL device (VR305) */</span></span><br><span class="line"> 	&#123;USB_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9265</span>)&#125;,	<span class="comment">/* Asus Gobi 2000 Modem device (VR305) */</span></span><br><span class="line"> 	&#123;USB_DEVICE(<span class="number">0x05c6</span>, <span class="number">0x9234</span>)&#125;,	<span class="comment">/* Top Global Gobi 2000 QDL device (VR306) */</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Backport: drivers/usb/serial/usb_wwan.c</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">--- a/drivers/usb/serial/usb_wwan.c	<span class="number">2018</span><span class="number">-12</span><span class="number">-21</span> <span class="number">21</span>:<span class="number">13</span>:<span class="number">19.000000000</span> +<span class="number">0800</span></span><br><span class="line">+++ b/drivers/usb/serial/usb_wwan.c	<span class="number">2018</span><span class="number">-12</span><span class="number">-26</span> <span class="number">17</span>:<span class="number">14</span>:<span class="number">55.372927727</span> +<span class="number">0800</span></span><br><span class="line">@@ <span class="number">-502</span>,<span class="number">6</span> +<span class="number">502</span>,<span class="number">23</span> @@</span><br><span class="line"> 			  usb_sndbulkpipe(serial-&gt;dev, endpoint) | dir,</span><br><span class="line"> 			  buf, len, callback, ctx);</span><br><span class="line"> </span><br><span class="line">+	<span class="comment">/* add for Quectel for zero packet */</span></span><br><span class="line">+	<span class="keyword">if</span> (USB_DIR_OUT == dir) &#123;</span><br><span class="line">+		<span class="class"><span class="keyword">struct</span> <span class="title">usb_device_descriptor</span> *<span class="title">desc</span> = &amp;<span class="title">serial</span>-&gt;<span class="title">dev</span>-&gt;<span class="title">descriptor</span>;</span></span><br><span class="line">+		<span class="keyword">if</span> ((cpu_to_le16(<span class="number">0x05C6</span>) == desc-&gt;idVendor) &amp;&amp; (cpu_to_le16(<span class="number">0x9090</span>) == desc-&gt;idProduct)) &#123;</span><br><span class="line">+			urb-&gt;transfer_flags |= URB_ZERO_PACKET;</span><br><span class="line">+		&#125;</span><br><span class="line">+		<span class="keyword">if</span> ((cpu_to_le16(<span class="number">0x05C6</span>) == desc-&gt;idVendor) &amp;&amp; (cpu_to_le16(<span class="number">0x9003</span>) == desc-&gt;idProduct)) &#123;</span><br><span class="line">+			urb-&gt;transfer_flags |= URB_ZERO_PACKET;</span><br><span class="line">+		&#125;</span><br><span class="line">+		<span class="keyword">if</span> ((cpu_to_le16(<span class="number">0x05C6</span>) == desc-&gt;idVendor) &amp;&amp; (cpu_to_le16(<span class="number">0x9215</span>) == desc-&gt;idProduct)) &#123;</span><br><span class="line">+			urb-&gt;transfer_flags |= URB_ZERO_PACKET;</span><br><span class="line">+		&#125;</span><br><span class="line">+		<span class="keyword">if</span> (cpu_to_le16(<span class="number">0x2C7C</span>) == desc-&gt;idVendor) &#123;</span><br><span class="line">+			urb-&gt;transfer_flags |= URB_ZERO_PACKET;</span><br><span class="line">+		&#125;</span><br><span class="line">+	&#125;</span><br><span class="line">+</span><br><span class="line"> 	<span class="keyword">return</span> urb;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Backport: drivers/usb/serial/option.c</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">--- a/drivers/usb/serial/option.c	<span class="number">2018</span><span class="number">-12</span><span class="number">-21</span> <span class="number">21</span>:<span class="number">13</span>:<span class="number">19.000000000</span> +<span class="number">0800</span></span><br><span class="line">+++ b/drivers/usb/serial/option.c	<span class="number">2018</span><span class="number">-12</span><span class="number">-27</span> <span class="number">07</span>:<span class="number">33</span>:<span class="number">43.644125800</span> +<span class="number">0800</span></span><br><span class="line">@@ <span class="number">-569</span>,<span class="number">6</span> +<span class="number">569</span>,<span class="number">17</span> @@</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"> <span class="keyword">static</span> <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">usb_device_id</span> <span class="title">option_ids</span>[] = &#123;</span></span><br><span class="line">+	<span class="comment">/* for Quectel */</span></span><br><span class="line">+	&#123; USB_DEVICE(<span class="number">0x05C6</span>, <span class="number">0x9090</span>) &#125;,	<span class="comment">/* Quectel UC15 */</span></span><br><span class="line">+	&#123; USB_DEVICE(<span class="number">0x05C6</span>, <span class="number">0x9003</span>) &#125;, <span class="comment">/* Quectel UC20 */</span></span><br><span class="line">+	&#123; USB_DEVICE(<span class="number">0x2C7C</span>, <span class="number">0x0125</span>) &#125;, <span class="comment">/* Quectel EC25/EC20 R2.0 */</span></span><br><span class="line">+	&#123; USB_DEVICE(<span class="number">0x2C7C</span>, <span class="number">0x0121</span>) &#125;, <span class="comment">/* Quectel EC21 */</span></span><br><span class="line">+	&#123; USB_DEVICE(<span class="number">0x05C6</span>, <span class="number">0x9215</span>) &#125;, <span class="comment">/* Quectel EC20 */</span></span><br><span class="line">+	&#123; USB_DEVICE(<span class="number">0x2C7C</span>, <span class="number">0x0191</span>) &#125;, <span class="comment">/* Quectel EG91 */</span></span><br><span class="line">+	&#123; USB_DEVICE(<span class="number">0x2C7C</span>, <span class="number">0x0195</span>) &#125;, <span class="comment">/* Quectel EG95 */</span></span><br><span class="line">+	&#123; USB_DEVICE(<span class="number">0x2C7C</span>, <span class="number">0x0306</span>) &#125;, <span class="comment">/* Quectel EG06/EP06/EM06 */</span></span><br><span class="line">+	&#123; USB_DEVICE(<span class="number">0x2C7C</span>, <span class="number">0x0296</span>) &#125;, <span class="comment">/* Quectel GG96 */</span></span><br><span class="line">+</span><br><span class="line"> 	&#123; USB_DEVICE(OPTION_VENDOR_ID, OPTION_PRODUCT_COLT) &#125;,</span><br><span class="line"> 	&#123; USB_DEVICE(OPTION_VENDOR_ID, OPTION_PRODUCT_RICOLA) &#125;,</span><br><span class="line"> 	&#123; USB_DEVICE(OPTION_VENDOR_ID, OPTION_PRODUCT_RICOLA_LIGHT) &#125;,</span><br><span class="line">@@ <span class="number">-1927</span>,<span class="number">7</span> +<span class="number">1938</span>,<span class="number">8</span> @@</span><br><span class="line"> 	&#123; USB_DEVICE_INTERFACE_CLASS(<span class="number">0x2001</span>, <span class="number">0x7d01</span>, <span class="number">0xff</span>) &#125;,			<span class="comment">/* D-Link DWM-156 (variant) */</span></span><br><span class="line"> 	&#123; USB_DEVICE_INTERFACE_CLASS(<span class="number">0x2001</span>, <span class="number">0x7d02</span>, <span class="number">0xff</span>) &#125;,</span><br><span class="line"> 	&#123; USB_DEVICE_INTERFACE_CLASS(<span class="number">0x2001</span>, <span class="number">0x7d03</span>, <span class="number">0xff</span>) &#125;,</span><br><span class="line">-	&#123; USB_DEVICE_INTERFACE_CLASS(<span class="number">0x2001</span>, <span class="number">0x7d04</span>, <span class="number">0xff</span>) &#125;,			<span class="comment">/* D-Link DWM-158 */</span></span><br><span class="line">+	&#123; USB_DEVICE_INTERFACE_CLASS(<span class="number">0x2001</span>, <span class="number">0x7d04</span>, <span class="number">0xff</span>),			<span class="comment">/* D-Link DWM-158 */</span></span><br><span class="line">+	 .driver_info = RSVD(<span class="number">4</span>) | RSVD(<span class="number">5</span>) &#125;,</span><br><span class="line"> 	&#123; USB_DEVICE_INTERFACE_CLASS(<span class="number">0x2001</span>, <span class="number">0x7d0e</span>, <span class="number">0xff</span>) &#125;,			<span class="comment">/* D-Link DWM-157 C1 */</span></span><br><span class="line"> 	&#123; USB_DEVICE_INTERFACE_CLASS(<span class="number">0x2001</span>, <span class="number">0x7e19</span>, <span class="number">0xff</span>),			<span class="comment">/* D-Link DWM-221 B1 */</span></span><br><span class="line"> 	  .driver_info = RSVD(<span class="number">4</span>) &#125;,</span><br><span class="line">@@ <span class="number">-1977</span>,<span class="number">6</span> +<span class="number">1989</span>,<span class="number">9</span> @@</span><br><span class="line"> #ifdef CONFIG_PM</span><br><span class="line"> 	.suspend           = usb_wwan_suspend,</span><br><span class="line"> 	.resume            = usb_wwan_resume,</span><br><span class="line">+	<span class="comment">/* add for Quectel */</span></span><br><span class="line">+	.reset_resume      = usb_wwan_resume,</span><br><span class="line">+</span><br><span class="line"> #endif</span><br><span class="line"> &#125;;</span><br><span class="line"> </span><br><span class="line">@@ <span class="number">-2014</span>,<span class="number">12</span> +<span class="number">2029</span>,<span class="number">25</span> @@</span><br><span class="line"> 	    iface_desc-&gt;bInterfaceClass != USB_CLASS_CDC_DATA)</span><br><span class="line"> 		<span class="keyword">return</span> -ENODEV;</span><br><span class="line"> </span><br><span class="line">-	<span class="comment">/*</span></span><br><span class="line"><span class="comment">-	 * Allow matching on bNumEndpoints for devices whose interface numbers</span></span><br><span class="line"><span class="comment">-	 * can change (e.g. Quectel EP06).</span></span><br><span class="line"><span class="comment">-	 */</span></span><br><span class="line">-	<span class="keyword">if</span> (device_flags &amp; NUMEP2 &amp;&amp; iface_desc-&gt;bNumEndpoints != <span class="number">2</span>)</span><br><span class="line">+	<span class="comment">/* added by Quectel UC20's interface 4 can be used as USB Network device */</span></span><br><span class="line">+	<span class="keyword">if</span> ((cpu_to_le16(<span class="number">0x05C6</span>) == serial-&gt;dev-&gt;descriptor.idVendor) &amp;&amp;</span><br><span class="line">+		(cpu_to_le16(<span class="number">0x9003</span>) == serial-&gt;dev-&gt;descriptor.idProduct) &amp;&amp;</span><br><span class="line">+		(<span class="number">4</span> &lt;= serial-&gt;interface-&gt;cur_altsetting-&gt;desc.bInterfaceNumber)) &#123;</span><br><span class="line">+		<span class="keyword">return</span> -ENODEV;</span><br><span class="line">+	&#125;</span><br><span class="line">+</span><br><span class="line">+	<span class="comment">/* added by Quectel EC20's interface 4 can be used as USB Network device */</span></span><br><span class="line">+	<span class="keyword">if</span> ((cpu_to_le16(<span class="number">0x05C6</span>) == serial-&gt;dev-&gt;descriptor.idVendor) &amp;&amp;</span><br><span class="line">+		(cpu_to_le16(<span class="number">0x9215</span>) == serial-&gt;dev-&gt;descriptor.idProduct) &amp;&amp;</span><br><span class="line">+		(<span class="number">4</span> &lt;= serial-&gt;interface-&gt;cur_altsetting-&gt;desc.bInterfaceNumber)) &#123;</span><br><span class="line">+		<span class="keyword">return</span> -ENODEV;</span><br><span class="line">+	&#125;</span><br><span class="line">+</span><br><span class="line">+	<span class="comment">/* added by Quectel EC25/EC21/EC20 R2.0/EG91/EG95/EG06/EP06/EM06/BG96's interface 4 can be used as USB Network device */</span></span><br><span class="line">+	<span class="keyword">if</span> ((cpu_to_le16(<span class="number">0x2C7C</span>) == serial-&gt;dev-&gt;descriptor.idVendor) &amp;&amp;</span><br><span class="line">+		(<span class="number">4</span> &lt;= serial-&gt;interface-&gt;cur_altsetting-&gt;desc.bInterfaceNumber)) &#123;</span><br><span class="line"> 		<span class="keyword">return</span> -ENODEV;</span><br><span class="line">+	&#125;</span><br><span class="line"> </span><br><span class="line"> 	<span class="comment">/* Store the device flags so we can use them during attach. */</span></span><br><span class="line"> 	usb_set_serial_data(serial, (<span class="keyword">void</span> *)device_flags);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置内核选项</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make kernel_menuconfig</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li><p>配置 CONFIG_USB_SERIAL_OPTION</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[*]Device Drivers</span><br><span class="line">    [*]USB Support</span><br><span class="line">        [*]USB Serial Converter support</span><br><span class="line">            [*]USB driver <span class="keyword">for</span> GSM and CDMA modems</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 CONFIG_USB_ACM</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[*]Device Drivers</span><br><span class="line">    [*]USB Support</span><br><span class="line">        [*]USB Modem (CDC ACM) support</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 CONFIG_USB_NET_QMI_WWAN</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[*] Device Drivers →</span><br><span class="line">    -*- Network device support →</span><br><span class="line">            USB Network Adapters →</span><br><span class="line">                &#123;*&#125; Multi-purpose USB Networking Framework</span><br><span class="line">                &lt;*&gt; QMI WWAN driver <span class="keyword">for</span> Qualcomm MSM based 3G and LTE modems</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 CONFIG_PPP_ASYNC CONFIG_PPP_SYNC_TTY CONFIG_PPP_DEFLATE</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[*] Device Drivers →</span><br><span class="line">    [*] Network device support →</span><br><span class="line">        [*] PPP (point-to-point protocol) support</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<hr>
+<h4 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h4>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/03/Openwrt-create-project/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -723,7 +905,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -734,7 +916,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

@@ -239,6 +239,205 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/03/06/Video-and-Audio-encode-basic-concept/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="J. Ian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ian688t6's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/06/Video-and-Audio-encode-basic-concept/" itemprop="url">音视频编解码基本概念</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-06T11:08:39+08:00">
+                2019-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/音视频开发/" itemprop="url" rel="index">
+                    <span itemprop="name">音视频开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="音视频基础概念"><a href="#音视频基础概念" class="headerlink" title="音视频基础概念"></a>音视频基础概念</h1><hr>
+<h2 id="什么是音视频编码？"><a href="#什么是音视频编码？" class="headerlink" title="什么是音视频编码？"></a>什么是音视频编码？</h2><p>所谓音视频编码就是指通过特定的压缩技术，将某个音视频格式的文件转换成另一种音视频格式文件的格式。</p>
+<h2 id="音视频编码的意义？"><a href="#音视频编码的意义？" class="headerlink" title="音视频编码的意义？"></a>音视频编码的意义？</h2><p>音视频编码的最终目的是对音视频进行压缩，未经编码（压缩）的音视频数据量大，存储困难，不利于网络传输。如果视频不经过编码压缩，在直播场景下做不到实时传输的需求。</p>
+<h2 id="视频编码格式有哪些-？"><a href="#视频编码格式有哪些-？" class="headerlink" title="视频编码格式有哪些 ？"></a>视频编码格式有哪些 ？</h2><ul>
+<li>H.264 （AVC) 也被成为高级视频编码（Advanced Video Codding），是一种视频压缩视频标准，简称AVC，一种被广泛使用的高精度视频的录制，压缩和发布格式。  </li>
+<li>H.265 (HEVC) 也被称为高效视频编码（High Efficiency Video Coding)，是一种视频压缩视频标准，简称 HEVC。可支持 4K 分辨率，最高分辨率可达到 8192x4320 (8K分辨率），目前的发展趋势。</li>
+</ul>
+<h2 id="音频编码格式有哪些-？"><a href="#音频编码格式有哪些-？" class="headerlink" title="音频编码格式有哪些 ？"></a>音频编码格式有哪些 ？</h2><ul>
+<li>AAC  也被成为高级音频编码 (Advanced Audio Codding) ，又被称为 MPEG-4 AAC，是一种有损压缩的音频编码集。其设计目的是为了替代原有的 MP3 编码标准，在相同码率下质量优于 MP3 编码。</li>
+<li>MP3 全称 MEPG-1 or MEPG-2 Audio Layer III，曾经非常流行的一种数字音频编码和有损压缩格式。</li>
+<li>WMA 全称 Windows Media Audio，是微软公司开发的一种数字音频编码格式，本身支持有损和无损压缩。</li>
+</ul>
+<p>目前 H.264 和 AAC 是最流行的编码压缩技术，无论媒体文件还是实时媒体流，H.264 一般与 AAC 一起使用。</p>
+<h2 id="H-264-（AVC-与-x264-是什么关系-？"><a href="#H-264-（AVC-与-x264-是什么关系-？" class="headerlink" title="H.264 （AVC) 与 x264 是什么关系 ？"></a>H.264 （AVC) 与 x264 是什么关系 ？</h2><ul>
+<li>H.264  是一个视频编码标准，由国际上两个著名的视频专家组（VCEG 和 MPEG) 合作提出的，两个专家组既称它为 H.264，也称为 AVC。</li>
+<li>x264 是一个编码器，它实现的参考标准就是 H.264，x264 是符合 H.264 的开源项目，是H.264 的简化版，不支持某些高级特性。常见的 H.264 的编解码器有 JM 和 x264。</li>
+</ul>
+<h2 id="什么是封装格式-？"><a href="#什么是封装格式-？" class="headerlink" title="什么是封装格式 ？"></a>什么是封装格式 ？</h2><ul>
+<li>AVI , 3GP ,MP4 都是一种视频封装格式， 是存储特定视频编码格式的容器，一般为文件扩展名。封装格式只是媒体数据的容器，不会影响视频画质，是把特定轨道按照特定格式存储到文件中。封装格式可以存储多种编码格式 ，如 QuickTime 几乎可以存储所有视频编码格式。</li>
+</ul>
+<h2 id="主流封装格式有哪些-？"><a href="#主流封装格式有哪些-？" class="headerlink" title="主流封装格式有哪些 ？"></a>主流封装格式有哪些 ？</h2><ul>
+<li><p>AVI </p>
+<p>   文件扩展名: .avi</p>
+<p>   缺点：体积大，只能存储一个视频轨道和音频轨道。不支持添加字幕。</p>
+<p>   优点：画质好</p>
+</li>
+<li><p>WMV</p>
+<p>   文件扩展名: .wmv</p>
+<p>   缺点：用户量少，普及低。</p>
+<p>   优点：高清编码格式，体积小，适合在线播放和传输。</p>
+</li>
+<li><p>MPEG</p>
+<p>   文件扩展名: .mpg , .mpeg , .3gp , .mp4 等</p>
+<p>   缺点：有损的文件格式</p>
+<p>   优点：支持字幕，可以封装多种编码的视频和音频。</p>
+</li>
+</ul>
+<h2 id="帧率"><a href="#帧率" class="headerlink" title="帧率"></a>帧率</h2><ul>
+<li>帧率是视频显示帧数的量度，简称 fps 或者 赫兹 （Hz）。每秒显示帧数或者帧率表示 GPU 处理时每秒能够绘制的次数。帧率越高画面更逼真和流畅，一般 30 fps 可以满足大部分场景，如果帧率超过屏幕的刷新频率，只会浪费 GPU。</li>
+</ul>
+<h2 id="刷新率"><a href="#刷新率" class="headerlink" title="刷新率"></a>刷新率</h2><ul>
+<li>刷新率是指屏幕每秒内刷新的次数，单位  赫兹 （Hz） ，频率越高越流畅。一般如果达到 80hz ，可以消除图像闪烁和抖动。</li>
+</ul>
+<h2 id="码率"><a href="#码率" class="headerlink" title="码率"></a>码率</h2><ul>
+<li><p>码率俗称比特率，比特率是单位时间内连续媒体的比特数量。码率越高，文件体积越大。通过码率我们可以计算出文件的大小：</p>
+<pre><code>文件大小 (b) = 码率（b/s）* 时长（s)
+</code></pre><p>  一般情况下码率越大画质越好，但也和具体编码算法有关。</p>
+</li>
+</ul>
+<h2 id="DTS-和-PTS"><a href="#DTS-和-PTS" class="headerlink" title="DTS 和 PTS"></a>DTS 和 PTS</h2><ul>
+<li><p>DTS : Decode Time Stamp ，一般用于标识该比特流在什么时候送入解码器解码。（因为之间有参考关系）</p>
+</li>
+<li><p>PTS : Presentation Time Stamp，一般用于解码后的视频帧什么时候被显示。</p>
+</li>
+</ul>
+<h2 id="视频帧的类型"><a href="#视频帧的类型" class="headerlink" title="视频帧的类型"></a>视频帧的类型</h2><ul>
+<li>I 帧：表示为关键帧，I 帧可以独立解码，可以理解为一帧完整的画面，解码时不参考其他帧。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/28/CheckIO-sun-angle/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1586,151 +1785,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/ian688t6/2019/01/25/CheckIO-Second-index/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="J. Ian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ian688t6's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/25/CheckIO-Second-index/" itemprop="url">My solution for CheckIO Second index</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T07:44:12+08:00">
-                2019-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/checkio/" itemprop="url" rel="index">
-                    <span itemprop="name">checkio</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="My-solution-for-CheckIO-“second-index”"><a href="#My-solution-for-CheckIO-“second-index”" class="headerlink" title="My solution for CheckIO “second-index”"></a>My solution for CheckIO “second-index”</h2><hr>
-<h3 id="Description"><a href="#Description" class="headerlink" title="Description:"></a>Description:</h3><p> You are given two strings and you have to find an index of the second occurrence of the second string in the first one.</p>
-<p>Let’s go through the first example where you need to find the second occurrence of “s” in a word “sims”. It’s easy to find its first occurrence with a function index or find which will point out that “s” is the first symbol in a word “sims” and therefore the index of the first occurrence is 0. But we have to find the second “s” which is 4th in a row and that means that the index of the second occurrence (and the answer to a question) is 3. </p>
-<hr>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution:"></a>Solution:</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">second_index</span><span class="params">(text: str, symbol: str)</span> -&gt; [int, <span class="keyword">None</span>]:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        begin = text.index(symbol)</span><br><span class="line">        ret = text.index(symbol, begin + <span class="number">1</span>, len(text))</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(second_index(<span class="string">"sims"</span>, <span class="string">"s"</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># These "asserts" are used for self-checking and not for an auto-testing</span></span><br><span class="line">print(second_index(<span class="string">"sims"</span>, <span class="string">"s"</span>))</span><br><span class="line">print(second_index(<span class="string">"find the river"</span>, <span class="string">"e"</span>))</span><br><span class="line">print(second_index(<span class="string">"hi"</span>, <span class="string">" "</span>))</span><br><span class="line">print(second_index(<span class="string">"hi mayor"</span>, <span class="string">" "</span>))</span><br><span class="line">print(second_index(<span class="string">"hi mr Mayor"</span>, <span class="string">" "</span>))</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1781,7 +1835,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1792,7 +1846,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
